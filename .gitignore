@@ -9,13 +9,13 @@
 
 
 .utmp/
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+/FOGPIIUnity/[Ll]ibrary/
+/FOGPIIUnity/[Tt]emp/
+/FOGPIIUnity/[Oo]bj/
+/FOGPIIUnity/[Bb]uild/
+/FOGPIIUnity/[Bb]uilds/
+/FOGPIIUnity/[Ll]ogs/
+/FOGPIIUnity/[Uu]ser[Ss]ettings/
 *.log
 *.DS_Store
 
