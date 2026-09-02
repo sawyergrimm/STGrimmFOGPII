@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dfu7bic2oeyv0"]
+
+[ext_resource type="Texture2D" uid="uid://33wvqnux5pr7" path="res://Assets/Sprites/Misc/box.png" id="1_acb23"]
+
+[sub_resource type="Curve" id="Curve_acb23"]
+_data = [Vector2(0.35411468, 1), 0.0, 0.0, 0, 0, Vector2(0.7356608, 0.69440913), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="BoxBreak" type="Node2D" unique_id=401684995]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2116353770]
+texture_filter = 1
+emitting = false
+amount = 3
+texture = ExtResource("1_acb23")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 0.8
+randomness = 0.4
+direction = Vector2(0, 1)
+spread = 62.53
+gravity = Vector2(0, 1000)
+initial_velocity_min = 103.29
+initial_velocity_max = 117.37
+angular_velocity_min = -493.52
+angular_velocity_max = 351.55
+scale_amount_curve = SubResource("Curve_acb23")

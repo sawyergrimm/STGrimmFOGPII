@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cc5w0mcoycvqt"]
+
+[ext_resource type="Texture2D" uid="uid://b3r6pj0fdd6iw" path="res://testlevel.png" id="1_1kog2"]
+[ext_resource type="PackedScene" uid="uid://bfynioi2u4m1j" path="res://Assets/Scenes/player.tscn" id="2_2xot7"]
+[ext_resource type="PackedScene" uid="uid://c6nhnodtqtkoi" path="res://Assets/Scenes/box.tscn" id="3_2xot7"]
+[ext_resource type="Texture2D" uid="uid://33wvqnux5pr7" path="res://Assets/Sprites/Misc/box.png" id="3_gs6we"]
+[ext_resource type="PackedScene" uid="uid://lj6w3cno355e" path="res://Assets/Particles/BulletImpact.tscn" id="4_waekl"]
+[ext_resource type="PackedScene" uid="uid://by7btwk25kfo6" path="res://Assets/Scenes/enemy.tscn" id="5_igkws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waekl"]
+size = Vector2(128, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlsm3"]
+size = Vector2(20, 3)
+
+[node name="Node2D" type="Node2D" unique_id=626639715]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=110154284]
+texture_filter = 1
+position = Vector2(11, -17)
+texture = ExtResource("1_1kog2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=7185791]
+position = Vector2(6, -41)
+offset = Vector2(5, 10)
+zoom = Vector2(18, 18)
+
+[node name="Player" parent="." unique_id=206405271 instance=ExtResource("2_2xot7")]
+position = Vector2(-35, -17)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=134517554]
+position = Vector2(11, 2.5)
+collision_layer = 7
+collision_mask = 7
+
+[node name="FloorCollider" type="CollisionShape2D" parent="Floor" unique_id=2057425684]
+shape = SubResource("RectangleShape2D_waekl")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=297195403]
+position = Vector2(29, -18)
+collision_layer = 7
+collision_mask = 7
+
+[node name="Platform Collider" type="CollisionShape2D" parent="Platform" unique_id=211462875]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_xlsm3")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=232109412]
+position = Vector2(54, -25)
+collision_layer = 7
+collision_mask = 7
+
+[node name="Platform Collider" type="CollisionShape2D" parent="Platform2" unique_id=1378070218]
+shape = SubResource("RectangleShape2D_xlsm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=82534621]
+texture_filter = 1
+position = Vector2(9.536743e-07, 5.9604645e-07)
+scale = Vector2(1.6875001, 0.37500006)
+texture = ExtResource("3_gs6we")
+
+[node name="box" parent="." unique_id=636167681 instance=ExtResource("3_2xot7")]
+position = Vector2(17, -40)
+mass = 0.179
+
+[node name="BulletImpact" parent="." unique_id=805142106 instance=ExtResource("4_waekl")]
+
+[node name="enemy" parent="." unique_id=539363537 instance=ExtResource("5_igkws")]
+position = Vector2(53, -9)

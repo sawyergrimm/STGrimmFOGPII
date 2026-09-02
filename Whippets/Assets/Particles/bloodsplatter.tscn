@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://btvlj7rb2bnui"]
+
+[ext_resource type="Script" uid="uid://oy6chs3ci0s1" path="res://Assets/Particles/cpu_particles_2d.gd" id="1_15da4"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=203533868]
+emitting = false
+lifetime = 0.16
+one_shot = true
+explosiveness = 0.9
+spread = 180.0
+initial_velocity_min = 56.34
+initial_velocity_max = 56.34
+scale_amount_min = 2.0
+scale_amount_max = 2.5
+color = Color(0.6, 0.24705882, 0.24313726, 1)
+hue_variation_min = -0.38
+hue_variation_max = 0.34
+script = ExtResource("1_15da4")

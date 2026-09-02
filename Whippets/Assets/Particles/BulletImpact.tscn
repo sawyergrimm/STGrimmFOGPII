@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://lj6w3cno355e"]
+
+[ext_resource type="Script" uid="uid://oy6chs3ci0s1" path="res://Assets/Particles/cpu_particles_2d.gd" id="1_6xtfs"]
+
+[sub_resource type="Curve" id="Curve_ht7f2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.24189523, 1), 0.0, 0.0, 0, 0, Vector2(0.61346626, 0.6310885), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="BulletImpact" type="Node2D" unique_id=805142106]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1464272018]
+emitting = false
+amount = 15
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.91
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 48.06
+initial_velocity_max = 66.84
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ht7f2")
+color = Color(0.78039217, 0.7411765, 0.62352943, 0.6313726)
+hue_variation_min = -0.36
+hue_variation_max = 0.3
+script = ExtResource("1_6xtfs")

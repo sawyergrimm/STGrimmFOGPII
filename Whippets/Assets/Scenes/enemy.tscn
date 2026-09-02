@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://by7btwk25kfo6"]
+
+[ext_resource type="Texture2D" uid="uid://4jlpxywkppiw" path="res://Assets/Sprites/Enemy/EnemyNeutral.png" id="1_atlr2"]
+[ext_resource type="Script" uid="uid://ddu6udgxp7us0" path="res://Assets/Scripts/enemy.gd" id="1_e2b7p"]
+[ext_resource type="PackedScene" uid="uid://btvlj7rb2bnui" path="res://Assets/Particles/bloodsplatter.tscn" id="2_2g0jp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2g0jp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2b7p"]
+size = Vector2(7, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g0jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_atlr2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="RigidBody2D" unique_id=539363537]
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_2g0jp")
+script = ExtResource("1_e2b7p")
+bloodSplatter = ExtResource("2_2g0jp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629769939]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_e2b7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613767515]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2g0jp")

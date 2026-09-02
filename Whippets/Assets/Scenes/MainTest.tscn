@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://qwi8jnsequco"]
+
+[ext_resource type="Script" uid="uid://bpigpvc7wyfnw" path="res://Assets/Scenes/camera.gd" id="1_lcn8a"]
+[ext_resource type="PackedScene" uid="uid://bfynioi2u4m1j" path="res://Assets/Scenes/player.tscn" id="2_xtw1p"]
+[ext_resource type="PackedScene" uid="uid://c6nhnodtqtkoi" path="res://Assets/Scenes/box.tscn" id="4_vui52"]
+[ext_resource type="PackedScene" uid="uid://lj6w3cno355e" path="res://Assets/Particles/BulletImpact.tscn" id="5_2m525"]
+[ext_resource type="PackedScene" uid="uid://chew1vrb0i27d" path="res://Assets/Scenes/geometry.tscn" id="5_ukkq0"]
+[ext_resource type="PackedScene" uid="uid://by7btwk25kfo6" path="res://Assets/Scenes/enemy.tscn" id="6_vb6gr"]
+
+[node name="Node2D" type="Node2D" unique_id=626639715]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=7185791 node_paths=PackedStringArray("player")]
+position = Vector2(5, -41)
+offset = Vector2(5, 10)
+zoom = Vector2(12, 12)
+script = ExtResource("1_lcn8a")
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=206405271 instance=ExtResource("2_xtw1p")]
+position = Vector2(-35, -17)
+
+[node name="box" parent="." unique_id=636167681 instance=ExtResource("4_vui52")]
+position = Vector2(10, -7)
+rotation = -0.007422149
+scale = Vector2(1, 1.64)
+mass = 0.179
+
+[node name="BulletImpact" parent="." unique_id=805142106 instance=ExtResource("5_2m525")]
+
+[node name="enemy" parent="." unique_id=539363537 instance=ExtResource("6_vb6gr")]
+position = Vector2(88, -38)
+
+[node name="Geometry" parent="." unique_id=1573173061 instance=ExtResource("5_ukkq0")]
+position = Vector2(48.999992, 5)
+scale = Vector2(13.799998, 0.3599981)
+
+[node name="Geometry2" parent="." unique_id=50516809 instance=ExtResource("5_ukkq0")]
+position = Vector2(75, -5)
+scale = Vector2(2.7160122, 0.8799972)
+
+[node name="Geometry3" parent="." unique_id=1709524582 instance=ExtResource("5_ukkq0")]
+position = Vector2(88, -20)
+
+[node name="Geometry4" parent="." unique_id=1689999647 instance=ExtResource("5_ukkq0")]
+position = Vector2(102, -6)
+
+[node name="Geometry5" parent="." unique_id=149679683 instance=ExtResource("5_ukkq0")]
+position = Vector2(157.00002, -27)
+scale = Vector2(0.3199951, 4.2000017)
+
+[node name="Geometry6" parent="." unique_id=433952478 instance=ExtResource("5_ukkq0")]
+position = Vector2(-58.000004, -27)
+scale = Vector2(0.39999998, 4.2799997)

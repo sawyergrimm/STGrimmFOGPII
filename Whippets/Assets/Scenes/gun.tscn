@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d0pa61ooqw5tp"]
+
+[ext_resource type="Texture2D" uid="uid://ivl5fxvtmbnk" path="res://Assets/Sprites/Player/gun.png" id="1_31nqj"]
+[ext_resource type="Script" uid="uid://bmrdhj82omq4i" path="res://Assets/Scenes/gun.gd" id="1_ytuk4"]
+[ext_resource type="Texture2D" uid="uid://jrr2ujqm07nx" path="res://Assets/Sprites/Player/shinygun.png" id="3_7i8lu"]
+[ext_resource type="AudioStream" uid="uid://cwyan58w8n3pu" path="res://Assets/Audio/GunSounds/reload.ogg" id="4_4vdip"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ytuk4"]
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytuk4"]
+size = Vector2(6, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vdip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7i8lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7i8lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7i8lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_31nqj")
+}],
+"loop": true,
+"name": &"shiny",
+"speed": 10.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1665548273]
+collision_layer = 7
+collision_mask = 7
+mass = 0.145
+physics_material_override = SubResource("PhysicsMaterial_ytuk4")
+gravity_scale = 0.2
+script = ExtResource("1_ytuk4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2024936187]
+texture_filter = 1
+texture = ExtResource("1_31nqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1068589587]
+shape = SubResource("RectangleShape2D_ytuk4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1762246706]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4vdip")
+frame_progress = 0.19680797
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=863624718]
+stream = ExtResource("4_4vdip")
+pitch_scale = 1.8
