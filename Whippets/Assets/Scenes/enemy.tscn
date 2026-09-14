@@ -3,6 +3,33 @@
 [ext_resource type="Texture2D" uid="uid://4jlpxywkppiw" path="res://Assets/Sprites/Enemy/EnemyNeutral.png" id="1_atlr2"]
 [ext_resource type="Script" uid="uid://ddu6udgxp7us0" path="res://Assets/Scripts/enemy.gd" id="1_e2b7p"]
 [ext_resource type="PackedScene" uid="uid://btvlj7rb2bnui" path="res://Assets/Particles/bloodsplatter.tscn" id="2_2g0jp"]
+[ext_resource type="PackedScene" uid="uid://dc6n8utdfmnjy" path="res://Assets/Scenes/bullet.tscn" id="3_6ekcc"]
+[ext_resource type="AudioStream" uid="uid://cr3cr4tbaka3p" path="res://Assets/Audio/GunSounds/shot1.ogg" id="4_cup26"]
+[ext_resource type="AudioStream" uid="uid://bobvqcwhsyw8b" path="res://Assets/Audio/GunSounds/shot2.ogg" id="5_6ekcc"]
+[ext_resource type="AudioStream" uid="uid://bgx705u7rdlq0" path="res://Assets/Audio/GunSounds/shot3.ogg" id="6_kjnsq"]
+[ext_resource type="AudioStream" uid="uid://c0lgqkktjk20a" path="res://Assets/Audio/GunSounds/shot4.ogg" id="7_hr4sq"]
+[ext_resource type="AudioStream" uid="uid://criiiphnnuknh" path="res://Assets/Audio/GunSounds/shot5.ogg" id="8_7q6nx"]
+[ext_resource type="AudioStream" uid="uid://kvq78pwtrfwy" path="res://Assets/Audio/GunSounds/shot6.ogg" id="9_nxufd"]
+[ext_resource type="AudioStream" uid="uid://b3yncrekxisev" path="res://Assets/Audio/GunSounds/shot7.ogg" id="10_x5wpg"]
+[ext_resource type="AudioStream" uid="uid://dw7h1ngv1atik" path="res://Assets/Audio/GunSounds/shot8.ogg" id="11_8gaq4"]
+[ext_resource type="AudioStream" uid="uid://dmko372osxswb" path="res://Assets/Audio/JumpGrunts/jump1.ogg" id="12_kcm2u"]
+[ext_resource type="AudioStream" uid="uid://cuejmbu5srye3" path="res://Assets/Audio/JumpGrunts/jump2.ogg" id="13_vret8"]
+[ext_resource type="AudioStream" uid="uid://ntdq1xsporew" path="res://Assets/Audio/JumpGrunts/jump3.ogg" id="14_m10fo"]
+[ext_resource type="AudioStream" uid="uid://b1figt0ojkgrw" path="res://Assets/Audio/JumpGrunts/jump4.ogg" id="15_ihprh"]
+[ext_resource type="AudioStream" uid="uid://mje02u7muv3b" path="res://Assets/Audio/JumpGrunts/jump5.ogg" id="16_2oi7t"]
+[ext_resource type="AudioStream" uid="uid://d0s73n66rdqou" path="res://Assets/Audio/JumpGrunts/jump6.ogg" id="17_q685r"]
+[ext_resource type="AudioStream" uid="uid://xsvtofj0lsaw" path="res://Assets/Audio/JumpGrunts/jump7.ogg" id="18_ak83i"]
+[ext_resource type="AudioStream" uid="uid://css7qrk6ja5rv" path="res://Assets/Audio/JumpGrunts/jump8.ogg" id="19_cdesp"]
+[ext_resource type="AudioStream" uid="uid://bjkpv8xesamm1" path="res://Assets/Audio/GunSounds/throw1.ogg" id="20_3j12o"]
+[ext_resource type="AudioStream" uid="uid://x330r0nxa2oa" path="res://Assets/Audio/GunSounds/throw2.ogg" id="21_g3hue"]
+[ext_resource type="AudioStream" uid="uid://d1xqs5fpa4uf5" path="res://Assets/Audio/GunSounds/throw3.ogg" id="22_qglm0"]
+[ext_resource type="AudioStream" uid="uid://c6mip66gjp4tt" path="res://Assets/Audio/GunSounds/throw4.ogg" id="23_td8gh"]
+[ext_resource type="AudioStream" uid="uid://ew5otph3qsbf" path="res://Assets/Audio/GunSounds/throw5.ogg" id="24_nysx7"]
+[ext_resource type="AudioStream" uid="uid://c5owb18oq1qpa" path="res://Assets/Audio/GunSounds/throw6.ogg" id="25_m2i2v"]
+[ext_resource type="AudioStream" uid="uid://dne7kapfkhv8b" path="res://Assets/Audio/GunSounds/throw7.ogg" id="26_hav80"]
+[ext_resource type="AudioStream" uid="uid://c3k51ggdfyd6r" path="res://Assets/Audio/GunSounds/throw8.ogg" id="27_epbfg"]
+[ext_resource type="Texture2D" uid="uid://ddwe72wn1aata" path="res://Assets/Sprites/Enemy/enemyGunarm.png" id="28_lug4b"]
+[ext_resource type="Script" uid="uid://lrvea8admmkt" path="res://Assets/Scenes/enemyGunarm.gd" id="29_cup26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2g0jp"]
 
@@ -20,11 +47,50 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bxwom"]
+playback_mode = 1
+random_pitch = 1.0204226
+random_volume_offset_db = 0.58
+streams_count = 8
+stream_0/stream = ExtResource("4_cup26")
+stream_1/stream = ExtResource("5_6ekcc")
+stream_2/stream = ExtResource("6_kjnsq")
+stream_3/stream = ExtResource("7_hr4sq")
+stream_4/stream = ExtResource("8_7q6nx")
+stream_5/stream = ExtResource("9_nxufd")
+stream_6/stream = ExtResource("10_x5wpg")
+stream_7/stream = ExtResource("11_8gaq4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ge4wq"]
+random_pitch = 1.0390991
+random_volume_offset_db = 2.1
+streams_count = 8
+stream_0/stream = ExtResource("12_kcm2u")
+stream_1/stream = ExtResource("13_vret8")
+stream_2/stream = ExtResource("14_m10fo")
+stream_3/stream = ExtResource("15_ihprh")
+stream_4/stream = ExtResource("16_2oi7t")
+stream_5/stream = ExtResource("17_q685r")
+stream_6/stream = ExtResource("18_ak83i")
+stream_7/stream = ExtResource("19_cdesp")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_opiqu"]
+streams_count = 8
+stream_0/stream = ExtResource("20_3j12o")
+stream_1/stream = ExtResource("21_g3hue")
+stream_2/stream = ExtResource("22_qglm0")
+stream_3/stream = ExtResource("23_td8gh")
+stream_4/stream = ExtResource("24_nysx7")
+stream_5/stream = ExtResource("25_m2i2v")
+stream_6/stream = ExtResource("26_hav80")
+stream_7/stream = ExtResource("27_epbfg")
+
 [node name="Enemy" type="RigidBody2D" unique_id=539363537]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_2g0jp")
 script = ExtResource("1_e2b7p")
 bloodSplatter = ExtResource("2_2g0jp")
+bullet = ExtResource("3_6ekcc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629769939]
 position = Vector2(-0.5, 1)
@@ -33,3 +99,29 @@ shape = SubResource("RectangleShape2D_e2b7p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613767515]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2g0jp")
+
+[node name="GunShotEnemy" type="AudioStreamPlayer2D" parent="." unique_id=1737569631]
+stream = SubResource("AudioStreamRandomizer_bxwom")
+volume_db = -9.622
+
+[node name="JumpGruntEnemy" type="AudioStreamPlayer2D" parent="." unique_id=131333417]
+stream = SubResource("AudioStreamRandomizer_ge4wq")
+volume_db = -8.94
+
+[node name="ThrowEnemy" type="AudioStreamPlayer2D" parent="." unique_id=748606698]
+stream = SubResource("AudioStreamRandomizer_opiqu")
+
+[node name="Gunarm" type="Sprite2D" parent="." unique_id=1160809671]
+texture_filter = 1
+position = Vector2(0, 1)
+scale = Vector2(0.9375, 1)
+texture = ExtResource("28_lug4b")
+offset = Vector2(1, 0)
+flip_v = true
+script = ExtResource("29_cup26")
+
+[node name="MarkerRight" type="Marker2D" parent="Gunarm" unique_id=1452797525]
+position = Vector2(13.866668, -2)
+
+[node name="MarkerLeft" type="Marker2D" parent="Gunarm" unique_id=523224870]
+position = Vector2(13.866667, 3)

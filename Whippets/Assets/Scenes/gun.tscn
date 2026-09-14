@@ -8,8 +8,8 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ytuk4"]
 bounce = 0.3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytuk4"]
-size = Vector2(6, 4)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vdip"]
+radius = 3.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4vdip"]
 animations = [{
@@ -58,8 +58,8 @@ animations = [{
 }]
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1665548273]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 4
+collision_mask = 3
 mass = 0.145
 physics_material_override = SubResource("PhysicsMaterial_ytuk4")
 gravity_scale = 0.2
@@ -70,7 +70,7 @@ texture_filter = 1
 texture = ExtResource("1_31nqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1068589587]
-shape = SubResource("RectangleShape2D_ytuk4")
+shape = SubResource("CircleShape2D_4vdip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1762246706]
 texture_filter = 1

@@ -8,11 +8,16 @@ const JUMP_VELOCITY = -200.0
 
 var gunarm = load("res://Assets/Sprites/Player/gunarm.png")
 var arm = load("res://Assets/Sprites/Player/arm.png")
+var whippet = load("res://Assets/Sprites/PLayer/whippet.png")
 
 var counter = 10
 var bulletInstanceCounter = 0
 var ammo = 10
 var hasGun = true
+var health = 3
+
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -56,14 +61,17 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func _process(_delta: float) -> void:
+	if health <= 0:
+		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("LeftMouseClick") and hasGun and ammo > 0:
 		ammo -= 1
 		$GunShotPlayer.play()
 		var b = bullet.instantiate()
 		b.player = self
+		b.firer = self.name
 		b.name = "bullet" + str(bulletInstanceCounter)
 		bulletInstanceCounter += 1
-		b.velocity = $Gunarm.transform.x * 1000
+		b.velocity = $Gunarm.transform.x * 200
 		get_tree().current_scene.add_child(b)
 		if $Gunarm.transform.get_rotation() > PI/2 or $Gunarm.transform.get_rotation() < -PI/2:
 			b.global_transform = $Gunarm/MarkerLeft.global_transform
@@ -81,7 +89,7 @@ func _process(_delta: float) -> void:
 			g.global_transform = $Gunarm/MarkerLeft.global_transform
 		else:
 			g.global_transform = $Gunarm/MarkerRight.global_transform
-		g.linear_velocity = $Gunarm.transform.x * 100
+		g.linear_velocity = $Gunarm.transform.x * 100 + Vector2(velocity.x / 3, 0)
 		if $AnimatedSprite2D.flip_h == true:
 			g.angular_velocity = randi() % 50
 		else:
@@ -96,5 +104,12 @@ func _process(_delta: float) -> void:
 		boxy.transform = transform
 		boxy.transform.y += Vector2(5,5)
 	
+	if Input.is_action_just_pressed("Shift"):
+		if $Gunarm.texture == whippet and hasGun:
+			$Gunarm.texture = gunarm
+		elif $Gunarm.texture == whippet:
+			$Gunarm.texture = arm
+		else:
+			$Gunarm.texture = whippet
 	
 	pass
