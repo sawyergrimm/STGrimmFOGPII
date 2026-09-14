@@ -35,6 +35,11 @@
 [ext_resource type="AudioStream" uid="uid://c5owb18oq1qpa" path="res://Assets/Audio/GunSounds/throw6.ogg" id="33_r5ifs"]
 [ext_resource type="AudioStream" uid="uid://dne7kapfkhv8b" path="res://Assets/Audio/GunSounds/throw7.ogg" id="34_tk7rj"]
 [ext_resource type="AudioStream" uid="uid://c3k51ggdfyd6r" path="res://Assets/Audio/GunSounds/throw8.ogg" id="35_c0qrj"]
+[ext_resource type="AudioStream" uid="uid://8m4fw8ogme4n" path="res://Assets/Audio/GunSounds/catch1.ogg" id="36_rgkdp"]
+[ext_resource type="AudioStream" uid="uid://cvt50chfj5yvb" path="res://Assets/Audio/GunSounds/catch2.ogg" id="37_r5ifs"]
+[ext_resource type="AudioStream" uid="uid://lmstnpgaxm3d" path="res://Assets/Audio/GunSounds/catch3.ogg" id="38_tk7rj"]
+[ext_resource type="AudioStream" uid="uid://d3465o6n3nij4" path="res://Assets/Audio/GunSounds/catch4.ogg" id="39_c0qrj"]
+[ext_resource type="AudioStream" uid="uid://bgg88wpf4yik3" path="res://Assets/Audio/Misc/whippet.ogg" id="40_r5ifs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{
@@ -115,6 +120,18 @@ stream_5/stream = ExtResource("33_r5ifs")
 stream_6/stream = ExtResource("34_tk7rj")
 stream_7/stream = ExtResource("35_c0qrj")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_icc0i"]
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("36_rgkdp")
+stream_1/stream = ExtResource("37_r5ifs")
+stream_2/stream = ExtResource("38_tk7rj")
+stream_3/stream = ExtResource("39_c0qrj")
+
+[sub_resource type="Gradient" id="Gradient_r5ifs"]
+offsets = PackedFloat32Array(0, 0.56647396, 1)
+colors = PackedColorArray(0.14225578, 0.14225581, 0.14225578, 1, 0.43137255, 0.43137255, 0.43137255, 0, 0.22490484, 0.22490484, 0.22490484, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=206405271]
 collision_layer = 7
 collision_mask = 7
@@ -160,3 +177,27 @@ volume_db = -8.94
 
 [node name="ThrowPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1207862391]
 stream = SubResource("AudioStreamRandomizer_cxlt4")
+
+[node name="GunCatchPlayer" type="AudioStreamPlayer2D" parent="." unique_id=292156097]
+stream = SubResource("AudioStreamRandomizer_icc0i")
+volume_db = -4.0
+
+[node name="WhippetPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1575243205]
+stream = ExtResource("40_r5ifs")
+volume_db = -14.791
+
+[node name="Blindness" type="CPUParticles2D" parent="." unique_id=1922815297]
+emitting = false
+amount = 251
+lifetime = 10.0
+lifetime_randomness = 0.3
+local_coords = true
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(120, 90)
+spread = 180.0
+gravity = Vector2(0, 0)
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+color_ramp = SubResource("Gradient_r5ifs")

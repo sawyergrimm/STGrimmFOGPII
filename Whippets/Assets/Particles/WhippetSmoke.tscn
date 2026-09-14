@@ -1,23 +1,36 @@
 [gd_scene format=3 uid="uid://bv1elhvt5wvl0"]
 
+[ext_resource type="Texture2D" uid="uid://bcq1un0bm2hck" path="res://Assets/Sprites/Misc/healed.png" id="1_ixwth"]
+
 [sub_resource type="Gradient" id="Gradient_d5klp"]
 colors = PackedColorArray(1, 1, 1, 1, 0.6918024, 0.6918024, 0.6918024, 1)
 metadata/_snap_enabled = true
 
+[sub_resource type="Curve" id="Curve_ixwth"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.515, -0.77197456), 0.0, 0.0, 0, 0, Vector2(0.6275, 0.017409801), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="WhippetSmoke" type="CPUParticles2D" unique_id=1142586277]
-amount = 30
+texture_filter = 1
+emitting = false
+amount = 12
+texture = ExtResource("1_ixwth")
 lifetime = 1.04
+one_shot = true
 explosiveness = 0.94
 lifetime_randomness = 0.54
+local_coords = true
 direction = Vector2(0, -100)
-spread = 71.46
+spread = 98.5
 gravity = Vector2(0, 200)
-initial_velocity_min = 200.0
+initial_velocity_min = 100.0
 initial_velocity_max = 300.0
 linear_accel_min = -160.0
 linear_accel_max = -160.0
-scale_amount_min = 2.0
-scale_amount_max = 10.0
-color = Color(0.54509807, 0.54509807, 0.54509807, 0.65882355)
+scale_amount_max = 5.0
+color = Color(0.7587511, 0.4110694, 0.39200145, 0.65882355)
 color_ramp = SubResource("Gradient_d5klp")
+hue_variation_min = 1.0
 hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_ixwth")

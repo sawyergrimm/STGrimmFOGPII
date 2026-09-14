@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cox0r1fec6qg8"]
+
+[ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="1_23s26"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m74w7"]
+font = ExtResource("1_23s26")
+font_size = 20
+
+[node name="UI" type="Control" unique_id=2130626799]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=238459257]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_m74w7")

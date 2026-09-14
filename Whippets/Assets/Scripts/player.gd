@@ -8,16 +8,21 @@ const JUMP_VELOCITY = -200.0
 
 var gunarm = load("res://Assets/Sprites/Player/gunarm.png")
 var arm = load("res://Assets/Sprites/Player/arm.png")
-var whippet = load("res://Assets/Sprites/PLayer/whippet.png")
+var whippet = load("res://Assets/Sprites/Player/whippet.png")
+var whippetSmoke = load("res://Assets/Particles/WhippetSmoke.tscn")
+var healthUI
 
 var counter = 10
+var whippetCounter = -2
 var bulletInstanceCounter = 0
 var ammo = 10
+var whippets = 100
 var hasGun = true
 var health = 3
 
 func _ready() -> void:
 	add_to_group("player")
+	healthUI = get_tree().current_scene.find_child("HealthUI")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -55,6 +60,8 @@ func _physics_process(delta: float) -> void:
 		if body != null and body.name.contains("gun"):
 			body.free()
 			hasGun = true
+			$GunCatchPlayer.play()
+			
 			$Gunarm.texture = gunarm
 		
 	
@@ -63,21 +70,51 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if health <= 0:
 		get_tree().reload_current_scene()
-	if Input.is_action_just_pressed("LeftMouseClick") and hasGun and ammo > 0:
-		ammo -= 1
-		$GunShotPlayer.play()
-		var b = bullet.instantiate()
-		b.player = self
-		b.firer = self.name
-		b.name = "bullet" + str(bulletInstanceCounter)
-		bulletInstanceCounter += 1
-		b.velocity = $Gunarm.transform.x * 200
-		get_tree().current_scene.add_child(b)
-		if $Gunarm.transform.get_rotation() > PI/2 or $Gunarm.transform.get_rotation() < -PI/2:
-			b.global_transform = $Gunarm/MarkerLeft.global_transform
-		else:
-			b.global_transform = $Gunarm/MarkerRight.global_transform
-	
+	if Input.is_action_just_pressed("LeftMouseClick"):
+		if hasGun and ammo > 0 and $Gunarm.texture == gunarm:
+			ammo -= 1
+			$GunShotPlayer.play()
+			var b = bullet.instantiate()
+			b.player = self
+			b.firer = self.name
+			b.name = "bullet" + str(bulletInstanceCounter)
+			bulletInstanceCounter += 1
+			b.velocity = $Gunarm.transform.x * 200
+			get_tree().current_scene.add_child(b)
+			if $Gunarm.transform.get_rotation() > PI/2 or $Gunarm.transform.get_rotation() < -PI/2:
+				b.global_transform = $Gunarm/MarkerLeft.global_transform
+			else:
+				b.global_transform = $Gunarm/MarkerRight.global_transform
+		
+		elif $Gunarm.texture == whippet:
+			whippetCounter += 1
+			if whippetCounter > 0:
+				$Blindness.amount = whippetCounter * 50
+				$Blindness.scale_amount_max = 4 * whippetCounter
+				if $Blindness.scale_amount_max > 100:
+					$Blindness.scale_amount_max = 100
+				$Blindness.scale_amount_min = 2 * whippetCounter
+				if $Blindness.scale_amount_min > 50:
+					$Blindness.scale_amount_min = 50
+				$Blindness.lifetime = whippetCounter * whippetCounter / (0.2 * whippetCounter)
+				if $Blindness.lifetime > 50:
+					$Blindness.lifetime = 50
+				$Blindness.emitting = true
+			
+			var particle = whippetSmoke.instantiate()
+			health = 3
+			whippets -= 1
+			$WhippetPlayer.play()
+			if whippets == 0:
+				if hasGun:
+					$Gunarm.texture = gunarm
+				else:
+					$Gunarm.texture = arm
+			get_tree().current_scene.add_child(particle)
+			particle.global_position = $Gunarm/MarkerLeft.global_position
+			particle.emitting = true
+			particle.finished.connect(particle.queue_free)
+
 	if Input.is_action_just_pressed("RightMouseClick") and hasGun:
 		$ThrowPlayer.play()
 		hasGun = false
@@ -109,7 +146,7 @@ func _process(_delta: float) -> void:
 			$Gunarm.texture = gunarm
 		elif $Gunarm.texture == whippet:
 			$Gunarm.texture = arm
-		else:
+		elif whippets > 0:
 			$Gunarm.texture = whippet
-	
+	healthUI.get_child(0).set_text(str(health))
 	pass

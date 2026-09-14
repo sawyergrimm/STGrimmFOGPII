@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpigpvc7wyfnw" path="res://Assets/Scenes/camera.gd" id="1_lcn8a"]
 [ext_resource type="PackedScene" uid="uid://bfynioi2u4m1j" path="res://Assets/Scenes/player.tscn" id="2_xtw1p"]
+[ext_resource type="PackedScene" uid="uid://cox0r1fec6qg8" path="res://Assets/UI/HealthUI.tscn" id="2_y2r1x"]
 [ext_resource type="PackedScene" uid="uid://c6nhnodtqtkoi" path="res://Assets/Scenes/box.tscn" id="4_vui52"]
 [ext_resource type="PackedScene" uid="uid://lj6w3cno355e" path="res://Assets/Particles/BulletImpact.tscn" id="5_2m525"]
 [ext_resource type="PackedScene" uid="uid://chew1vrb0i27d" path="res://Assets/Scenes/geometry.tscn" id="5_ukkq0"]
@@ -10,14 +11,17 @@
 [node name="Node2D" type="Node2D" unique_id=626639715]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=7185791 node_paths=PackedStringArray("player")]
-position = Vector2(5, -41)
+position = Vector2(-36, -52)
 offset = Vector2(5, 10)
-zoom = Vector2(12, 12)
+zoom = Vector2(8, 8)
 script = ExtResource("1_lcn8a")
 player = NodePath("../Player")
 
-[node name="Player" parent="." unique_id=206405271 instance=ExtResource("2_xtw1p")]
-position = Vector2(-36, -12)
+[node name="HealthUI" parent="Camera2D" unique_id=2130626799 instance=ExtResource("2_y2r1x")]
+offset_left = -85.0
+offset_top = -44.0
+offset_right = -85.0
+offset_bottom = -44.0
 
 [node name="BulletImpact" parent="." unique_id=805142106 instance=ExtResource("5_2m525")]
 
@@ -52,7 +56,7 @@ position = Vector2(257, -7.0000005)
 scale = Vector2(5.76, 1.16)
 
 [node name="box0" parent="." unique_id=636167681 instance=ExtResource("4_vui52")]
-position = Vector2(10, -7)
+position = Vector2(-17, -8)
 rotation = -0.007422149
 mass = 0.179
 
@@ -70,3 +74,6 @@ position = Vector2(267, -28)
 
 [node name="enemy3" parent="." unique_id=1857507696 instance=ExtResource("6_vb6gr")]
 position = Vector2(406, -26)
+
+[node name="Player" parent="." unique_id=206405271 instance=ExtResource("2_xtw1p")]
+position = Vector2(-36, -12)
