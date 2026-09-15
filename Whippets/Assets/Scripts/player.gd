@@ -10,7 +10,10 @@ var gunarm = load("res://Assets/Sprites/Player/gunarm.png")
 var arm = load("res://Assets/Sprites/Player/arm.png")
 var whippet = load("res://Assets/Sprites/Player/whippet.png")
 var whippetSmoke = load("res://Assets/Particles/WhippetSmoke.tscn")
+var greyscale = load("res://Assets/Colors/grayscaleFade.tres")
+var redscale = load("res://Assets/Colors/redscaleFade.tres")
 var healthUI
+var blindness
 
 var counter = 10
 var whippetCounter = -2
@@ -23,6 +26,7 @@ var health = 3
 func _ready() -> void:
 	add_to_group("player")
 	healthUI = get_tree().current_scene.find_child("HealthUI")
+	blindness = $Blindness
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -89,17 +93,24 @@ func _process(_delta: float) -> void:
 		elif $Gunarm.texture == whippet:
 			whippetCounter += 1
 			if whippetCounter > 0:
-				$Blindness.amount = whippetCounter * 50
-				$Blindness.scale_amount_max = 4 * whippetCounter
-				if $Blindness.scale_amount_max > 100:
-					$Blindness.scale_amount_max = 100
-				$Blindness.scale_amount_min = 2 * whippetCounter
-				if $Blindness.scale_amount_min > 50:
-					$Blindness.scale_amount_min = 50
-				$Blindness.lifetime = whippetCounter * whippetCounter / (0.2 * whippetCounter)
-				if $Blindness.lifetime > 50:
-					$Blindness.lifetime = 50
-				$Blindness.emitting = true
+				blindness.amount = whippetCounter * 100
+				blindness.scale_amount_max = 8 * whippetCounter
+				if blindness.scale_amount_max > 100:
+					blindness.scale_amount_max = 100
+				blindness.scale_amount_min = 4 * whippetCounter
+				if blindness.scale_amount_min > 50:
+					blindness.scale_amount_min = 50
+				blindness.lifetime = whippetCounter * whippetCounter / (0.2 * whippetCounter)
+				if blindness.lifetime > 50:
+					blindness.lifetime = 50
+				blindness.emitting = true
+			if whippetCounter > 12:
+				blindness.color = Color.DARK_RED
+				blindness.color_ramp = redscale
+			if whippetCounter >= 15:
+				get_tree().reload_current_scene()
+				return
+				
 			
 			var particle = whippetSmoke.instantiate()
 			health = 3

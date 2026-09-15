@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		queue_free()
 	timeVar += delta
-	var collisions = get_colliding_bodies()	
+	var _collisions = get_colliding_bodies()	
 	if timeVar > interval:
 		timeVar -= interval
 		if position.distance_to(player.position) < 130:

@@ -39,7 +39,8 @@
 [ext_resource type="AudioStream" uid="uid://cvt50chfj5yvb" path="res://Assets/Audio/GunSounds/catch2.ogg" id="37_r5ifs"]
 [ext_resource type="AudioStream" uid="uid://lmstnpgaxm3d" path="res://Assets/Audio/GunSounds/catch3.ogg" id="38_tk7rj"]
 [ext_resource type="AudioStream" uid="uid://d3465o6n3nij4" path="res://Assets/Audio/GunSounds/catch4.ogg" id="39_c0qrj"]
-[ext_resource type="AudioStream" uid="uid://bgg88wpf4yik3" path="res://Assets/Audio/Misc/whippet.ogg" id="40_r5ifs"]
+[ext_resource type="AudioStream" uid="uid://dymcdh2t0xru4" path="res://Assets/Audio/Misc/whippet.ogg" id="40_r5ifs"]
+[ext_resource type="Gradient" uid="uid://qvli3x6hw0rl" path="res://Assets/Colors/grayscaleFade.tres" id="41_tk7rj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{
@@ -128,10 +129,6 @@ stream_1/stream = ExtResource("37_r5ifs")
 stream_2/stream = ExtResource("38_tk7rj")
 stream_3/stream = ExtResource("39_c0qrj")
 
-[sub_resource type="Gradient" id="Gradient_r5ifs"]
-offsets = PackedFloat32Array(0, 0.56647396, 1)
-colors = PackedColorArray(0.14225578, 0.14225581, 0.14225578, 1, 0.43137255, 0.43137255, 0.43137255, 0, 0.22490484, 0.22490484, 0.22490484, 1)
-
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=206405271]
 collision_layer = 7
 collision_mask = 7
@@ -186,6 +183,8 @@ volume_db = -4.0
 stream = ExtResource("40_r5ifs")
 volume_db = -14.791
 
+[node name="WarningPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1087082260]
+
 [node name="Blindness" type="CPUParticles2D" parent="." unique_id=1922815297]
 emitting = false
 amount = 251
@@ -200,4 +199,4 @@ gravity = Vector2(0, 0)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
 color = Color(0.24115604, 0.24115604, 0.24115604, 1)
-color_ramp = SubResource("Gradient_r5ifs")
+color_ramp = ExtResource("41_tk7rj")
