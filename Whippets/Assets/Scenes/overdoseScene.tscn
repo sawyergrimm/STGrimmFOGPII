@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://djusk3eq7kapl"]
 
 [ext_resource type="Script" uid="uid://dk3qkvdcxtjyv" path="res://overdose_scene.gd" id="1_24b7j"]
-[ext_resource type="AudioStream" uid="uid://cjbacwmj5x0cl" path="res://Assets/Audio/Misc/overdose.ogg" id="2_a6yif"]
+[ext_resource type="AudioStream" uid="uid://d10bd5ve7woax" path="res://Assets/Audio/Misc/overdose.ogg" id="2_a6yif"]
 [ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="3_a6yif"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a6yif"]
+streams_count = 1
+stream_0/stream = ExtResource("2_a6yif")
 
 [node name="OverdoseScene" type="Node2D" unique_id=201026657]
 script = ExtResource("1_24b7j")
 
 [node name="OverdosePlayer" type="AudioStreamPlayer2D" parent="." unique_id=2095372859]
-stream = ExtResource("2_a6yif")
+stream = SubResource("AudioStreamRandomizer_a6yif")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=247339181]
 

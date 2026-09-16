@@ -13,6 +13,7 @@ var whippetSmoke = load("res://Assets/Particles/WhippetSmoke.tscn")
 var greyscale = load("res://Assets/Colors/grayscaleFade.tres")
 var redscale = load("res://Assets/Colors/redscaleFade.tres")
 var healthUI
+var bulletUI
 var blindness
 
 var counter = 10
@@ -26,6 +27,7 @@ var health = 3
 func _ready() -> void:
 	add_to_group("player")
 	healthUI = get_tree().current_scene.find_child("HealthUI")
+	bulletUI = get_tree().current_scene.find_child("BulletUI")
 	blindness = $Blindness
 
 func _physics_process(delta: float) -> void:
@@ -159,5 +161,7 @@ func _process(_delta: float) -> void:
 			$Gunarm.texture = arm
 		elif whippets > 0:
 			$Gunarm.texture = whippet
-	healthUI.get_child(0).set_text(str(health))
+	healthUI.get_child(0).set_text("Health:"+str(health))
+	bulletUI.get_child(0).set_text("Ammo:" + str(ammo))
+	
 	pass

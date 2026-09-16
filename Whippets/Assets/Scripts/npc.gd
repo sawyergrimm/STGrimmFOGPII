@@ -16,7 +16,7 @@ func _on_body_entered(body):
 		interactable = true
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	$TutorialText.text = textArray[interactCount]
 	if Input.is_action_just_pressed("Interact"):
 		$TutorialText/Label.visible = false

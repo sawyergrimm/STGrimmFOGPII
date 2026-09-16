@@ -19,9 +19,15 @@ script = ExtResource("1_lcn8a")
 player = NodePath("../Player")
 
 [node name="HealthUI" parent="Camera2D" unique_id=2130626799 instance=ExtResource("2_y2r1x")]
-offset_left = -85.0
+offset_left = -110.0
 offset_top = -44.0
-offset_right = -85.0
+offset_right = -110.0
+offset_bottom = -44.0
+
+[node name="BulletUI" parent="Camera2D" unique_id=1874084529 instance=ExtResource("2_y2r1x")]
+offset_left = 70.0
+offset_top = -44.0
+offset_right = 70.0
 offset_bottom = -44.0
 
 [node name="BulletImpact" parent="." unique_id=805142106 instance=ExtResource("5_2m525")]
