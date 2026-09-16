@@ -17,7 +17,7 @@ var bulletUI
 var blindness
 
 var counter = 10
-var whippetCounter = -2
+var whippetCounter = -1
 var bulletInstanceCounter = 0
 var ammo = 10
 var whippets = 100
@@ -106,10 +106,10 @@ func _process(_delta: float) -> void:
 				if blindness.lifetime > 50:
 					blindness.lifetime = 50
 				blindness.emitting = true
-			if whippetCounter > 12:
+			if whippetCounter > 6:
 				blindness.color = Color.DARK_RED
 				blindness.color_ramp = redscale
-			if whippetCounter >= 15:
+			if whippetCounter >= 9:
 				get_tree().change_scene_to_file("res://Assets/Scenes/overdoseScene.tscn")
 				return
 				
