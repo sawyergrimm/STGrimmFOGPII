@@ -56,7 +56,7 @@ scale = Vector2(0.39999998, 4.2799997)
 position = Vector2(-118, 5)
 scale = Vector2(7.5599995, 0.59999967)
 
-[node name="Geometry10" parent="." unique_id=769351696 instance=ExtResource("5_ukkq0")]
+[node name="RemovableWall" parent="." unique_id=769351696 instance=ExtResource("5_ukkq0")]
 position = Vector2(-73.00001, -29)
 scale = Vector2(0.39999998, 4.2799997)
 

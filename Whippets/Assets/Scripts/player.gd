@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if health <= 0:
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://Assets/Scenes/shot_scene.tscn")
 	if Input.is_action_just_pressed("LeftMouseClick"):
 		if hasGun and ammo > 0 and $Gunarm.texture == gunarm:
 			ammo -= 1
@@ -108,7 +108,7 @@ func _process(_delta: float) -> void:
 				blindness.color = Color.DARK_RED
 				blindness.color_ramp = redscale
 			if whippetCounter >= 15:
-				get_tree().reload_current_scene()
+				get_tree().change_scene_to_file("res://Assets/Scenes/overdoseScene.tscn")
 				return
 				
 			

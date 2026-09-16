@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bmw5qr6sah0x6" path="res://Assets/Sprites/NPC/NPC1.png" id="1_8n6a7"]
 [ext_resource type="Script" uid="uid://cfjs4temr0cnq" path="res://Assets/Scripts/npc.gd" id="1_peea3"]
 [ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="3_7a58h"]
+[ext_resource type="AudioStream" uid="uid://0e4wn11h5cmw" path="res://Assets/Audio/Misc/NPCChatter.ogg" id="4_laeim"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whs0s"]
 
@@ -16,6 +17,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q3a62"]
+random_pitch = 1.2190439
+streams_count = 1
+stream_0/stream = ExtResource("4_laeim")
 
 [node name="NPC" type="Area2D" unique_id=2139562292]
 z_index = -1
@@ -52,5 +58,11 @@ scale = Vector2(0.12066702, 0.19807667)
 theme_override_fonts/font = ExtResource("3_7a58h")
 text = "press e to hear more"
 horizontal_alignment = 1
+
+[node name="Chatter" type="AudioStreamPlayer2D" parent="." unique_id=15169434]
+position = Vector2(-19, -43)
+stream = SubResource("AudioStreamRandomizer_q3a62")
+volume_db = -1.529
+pitch_scale = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
