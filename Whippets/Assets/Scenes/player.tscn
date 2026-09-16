@@ -1,16 +1,12 @@
 [gd_scene format=3 uid="uid://bfynioi2u4m1j"]
 
-[ext_resource type="Texture2D" uid="uid://cmgqhkhq4nn5k" path="res://Assets/Sprites/Player/MCNuetral.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://d2xxlsbk5fxgc" path="res://Assets/Scripts/player.gd" id="1_hqtel"]
-[ext_resource type="Texture2D" uid="uid://pfy3bjku2jyv" path="res://Assets/Sprites/Player/MCSlightlyRaised.png" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://dc6n8utdfmnjy" path="res://Assets/Scenes/bullet.tscn" id="2_jm5j8"]
-[ext_resource type="Texture2D" uid="uid://fepv83bn4oqt" path="res://Assets/Sprites/Player/MCRaised.png" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c6nhnodtqtkoi" path="res://Assets/Scenes/box.tscn" id="3_5lpyi"]
 [ext_resource type="PackedScene" uid="uid://d0pa61ooqw5tp" path="res://Assets/Scenes/gun.tscn" id="4_fupf5"]
-[ext_resource type="Texture2D" uid="uid://d4dc2qqyxnno" path="res://Assets/Sprites/Player/MCRun1.png" id="5_dw050"]
 [ext_resource type="Texture2D" uid="uid://rcwwnc68g28m" path="res://Assets/Sprites/Player/gunarm.png" id="5_sweqy"]
+[ext_resource type="SpriteFrames" uid="uid://io0gexi7uno4" path="res://Assets/Animations/PlayerAnimations.tres" id="5_vjh5i"]
 [ext_resource type="Script" uid="uid://cucc85jjclhl8" path="res://Assets/Scripts/gunarm.gd" id="6_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://c0ni3llbuu36j" path="res://Assets/Sprites/Player/MCRUN2.png" id="6_b26j0"]
 [ext_resource type="AudioStream" uid="uid://cr3cr4tbaka3p" path="res://Assets/Audio/GunSounds/shot1.ogg" id="9_u1c27"]
 [ext_resource type="AudioStream" uid="uid://bobvqcwhsyw8b" path="res://Assets/Audio/GunSounds/shot2.ogg" id="10_op7ga"]
 [ext_resource type="AudioStream" uid="uid://bgx705u7rdlq0" path="res://Assets/Audio/GunSounds/shot3.ogg" id="11_q13i1"]
@@ -41,43 +37,6 @@
 [ext_resource type="AudioStream" uid="uid://d3465o6n3nij4" path="res://Assets/Audio/GunSounds/catch4.ogg" id="39_c0qrj"]
 [ext_resource type="AudioStream" uid="uid://dymcdh2t0xru4" path="res://Assets/Audio/Misc/whippet.ogg" id="40_r5ifs"]
 [ext_resource type="Gradient" uid="uid://qvli3x6hw0rl" path="res://Assets/Colors/grayscaleFade.tres" id="41_tk7rj"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_4flbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_onrkg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_dw050")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_b26j0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}],
-"loop": false,
-"name": &"run",
-"speed": 8.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
 radius = 3.0
@@ -139,7 +98,7 @@ gun = ExtResource("4_fupf5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=373928593]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_i3pqv")
+sprite_frames = ExtResource("5_vjh5i")
 animation = &"run"
 autoplay = "default"
 frame = 3

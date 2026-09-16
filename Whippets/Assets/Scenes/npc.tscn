@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bnmy5emtfhb7f"]
+
+[ext_resource type="Texture2D" uid="uid://bmw5qr6sah0x6" path="res://Assets/Sprites/NPC/NPC1.png" id="1_8n6a7"]
+[ext_resource type="Script" uid="uid://cfjs4temr0cnq" path="res://Assets/Scripts/npc.gd" id="1_peea3"]
+[ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="3_7a58h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whs0s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4fm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8n6a7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC" type="Area2D" unique_id=2139562292]
+z_index = -1
+script = ExtResource("1_peea3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1384781313]
+shape = SubResource("RectangleShape2D_whs0s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1033076907]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_s4fm6")
+flip_h = true
+
+[node name="TutorialText" type="Label" parent="." unique_id=467703440]
+texture_filter = 1
+offset_left = -19.0
+offset_top = -43.0
+offset_right = 21.0
+offset_bottom = -20.0
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("3_7a58h")
+theme_override_font_sizes/font_size = 10
+text = "Yo!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="TutorialText" unique_id=1889247806]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 170.0
+offset_bottom = 38.0
+scale = Vector2(0.12066702, 0.19807667)
+theme_override_fonts/font = ExtResource("3_7a58h")
+text = "press e to hear more"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0pa61ooqw5tp"]
 
-[ext_resource type="Script" uid="uid://bmrdhj82omq4i" path="res://Assets/Scenes/gun.gd" id="1_ytuk4"]
+[ext_resource type="Script" uid="uid://bmrdhj82omq4i" path="res://Assets/Scripts/gun.gd" id="1_ytuk4"]
 [ext_resource type="Texture2D" uid="uid://ivl5fxvtmbnk" path="res://Assets/Sprites/Player/gun.png" id="3_7i8lu"]
 [ext_resource type="AudioStream" uid="uid://cwyan58w8n3pu" path="res://Assets/Audio/GunSounds/reload.ogg" id="4_4vdip"]
 [ext_resource type="Texture2D" uid="uid://jrr2ujqm07nx" path="res://Assets/Sprites/Player/shinygun.png" id="4_imqm0"]

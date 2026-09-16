@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://qwi8jnsequco"]
 
-[ext_resource type="Script" uid="uid://bpigpvc7wyfnw" path="res://Assets/Scenes/camera.gd" id="1_lcn8a"]
+[ext_resource type="Script" uid="uid://bpigpvc7wyfnw" path="res://Assets/Scripts/camera.gd" id="1_lcn8a"]
 [ext_resource type="PackedScene" uid="uid://bfynioi2u4m1j" path="res://Assets/Scenes/player.tscn" id="2_xtw1p"]
 [ext_resource type="PackedScene" uid="uid://cox0r1fec6qg8" path="res://Assets/UI/HealthUI.tscn" id="2_y2r1x"]
 [ext_resource type="PackedScene" uid="uid://c6nhnodtqtkoi" path="res://Assets/Scenes/box.tscn" id="4_vui52"]
 [ext_resource type="PackedScene" uid="uid://lj6w3cno355e" path="res://Assets/Particles/BulletImpact.tscn" id="5_2m525"]
 [ext_resource type="PackedScene" uid="uid://chew1vrb0i27d" path="res://Assets/Scenes/geometry.tscn" id="5_ukkq0"]
 [ext_resource type="PackedScene" uid="uid://by7btwk25kfo6" path="res://Assets/Scenes/enemy.tscn" id="6_vb6gr"]
+[ext_resource type="PackedScene" uid="uid://bnmy5emtfhb7f" path="res://Assets/Scenes/npc.tscn" id="8_y2r1x"]
 
 [node name="Node2D" type="Node2D" unique_id=626639715]
 
@@ -48,7 +49,15 @@ position = Vector2(461.00003, -50.000004)
 scale = Vector2(0.3199951, 4.2000017)
 
 [node name="Geometry6" parent="." unique_id=433952478 instance=ExtResource("5_ukkq0")]
-position = Vector2(-58.000004, -27)
+position = Vector2(-175, -26)
+scale = Vector2(0.39999998, 4.2799997)
+
+[node name="Geometry9" parent="." unique_id=1409594605 instance=ExtResource("5_ukkq0")]
+position = Vector2(-118, 5)
+scale = Vector2(7.5599995, 0.59999967)
+
+[node name="Geometry10" parent="." unique_id=769351696 instance=ExtResource("5_ukkq0")]
+position = Vector2(-73.00001, -29)
 scale = Vector2(0.39999998, 4.2799997)
 
 [node name="Geometry7" parent="." unique_id=1468697275 instance=ExtResource("5_ukkq0")]
@@ -76,4 +85,7 @@ position = Vector2(267, -28)
 position = Vector2(406, -26)
 
 [node name="Player" parent="." unique_id=206405271 instance=ExtResource("2_xtw1p")]
-position = Vector2(-36, -12)
+position = Vector2(-163, -10)
+
+[node name="NPC" parent="." unique_id=2139562292 instance=ExtResource("8_y2r1x")]
+position = Vector2(-115, -8)

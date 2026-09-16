@@ -29,7 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://dne7kapfkhv8b" path="res://Assets/Audio/GunSounds/throw7.ogg" id="26_hav80"]
 [ext_resource type="AudioStream" uid="uid://c3k51ggdfyd6r" path="res://Assets/Audio/GunSounds/throw8.ogg" id="27_epbfg"]
 [ext_resource type="Texture2D" uid="uid://ddwe72wn1aata" path="res://Assets/Sprites/Enemy/enemyGunarm.png" id="28_lug4b"]
-[ext_resource type="Script" uid="uid://lrvea8admmkt" path="res://Assets/Scenes/enemyGunarm.gd" id="29_cup26"]
+[ext_resource type="Script" uid="uid://lrvea8admmkt" path="res://Assets/Scripts/enemyGunarm.gd" id="29_cup26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2g0jp"]
 
