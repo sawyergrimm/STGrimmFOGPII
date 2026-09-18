@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dseg70yhhwmxi"
-path="res://.godot/imported/Ithaca-LVB75.ttf-956000a5241a9c8ce5f00a1e8c3ec71d.fontdata"
+uid="uid://cl3321d8vokwh"
+path="res://.godot/imported/PixelifySans-VariableFont_wght.ttf-a923bf9f8ee5d1296c764e92b832137c.fontdata"
 
 [deps]
 
-source_file="res://Assets/UI/Ithaca-LVB75.ttf"
-dest_files=["res://.godot/imported/Ithaca-LVB75.ttf-956000a5241a9c8ce5f00a1e8c3ec71d.fontdata"]
+source_file="res://Assets/UI/PixelifySans-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/PixelifySans-VariableFont_wght.ttf-a923bf9f8ee5d1296c764e92b832137c.fontdata"]
 
 [params]
 
@@ -34,7 +34,11 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0)
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0,
+&"variation_opentype": {
+2003265652: 400
+}
 }]
 language_support={}
 script_support={}

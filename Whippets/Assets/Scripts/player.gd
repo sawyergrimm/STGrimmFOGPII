@@ -67,10 +67,7 @@ func _physics_process(delta: float) -> void:
 			body.free()
 			hasGun = true
 			$GunCatchPlayer.play()
-			
 			$Gunarm.texture = gunarm
-		
-	
 	pass
 
 func _process(_delta: float) -> void:
@@ -161,6 +158,9 @@ func _process(_delta: float) -> void:
 			$Gunarm.texture = arm
 		elif whippets > 0:
 			$Gunarm.texture = whippet
+	
+	if Input.is_action_just_pressed("Refresh"):
+		get_tree().reload_current_scene()
 	healthUI.get_child(0).set_text("Health:"+str(health))
 	bulletUI.get_child(0).set_text("Ammo:" + str(ammo))
 	
