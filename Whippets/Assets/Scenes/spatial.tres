@@ -1,0 +1,10 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ds43osjphhl3o"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_gwqnf"]
+constant = 5.0
+
+[resource]
+varyings/Speed = "0,0"
+nodes/vertex/0/position = Vector2(790, 130)
+nodes/vertex/2/node = SubResource("VisualShaderNodeFloatConstant_gwqnf")
+nodes/vertex/2/position = Vector2(-820, 330)

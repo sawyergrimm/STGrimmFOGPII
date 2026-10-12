@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chew1vrb0i27d" path="res://Assets/Scenes/geometry.tscn" id="5_ukkq0"]
 [ext_resource type="PackedScene" uid="uid://by7btwk25kfo6" path="res://Assets/Scenes/enemy.tscn" id="6_vb6gr"]
 [ext_resource type="PackedScene" uid="uid://bnmy5emtfhb7f" path="res://Assets/Scenes/npc.tscn" id="8_y2r1x"]
+[ext_resource type="PackedScene" uid="uid://wo4hqd504ia6" path="res://Assets/Scenes/shaderScene.tscn" id="9_vui52"]
 
 [node name="Node2D" type="Node2D" unique_id=626639715]
 
@@ -71,7 +72,7 @@ position = Vector2(257, -7.0000005)
 scale = Vector2(5.76, 1.16)
 
 [node name="box0" parent="." unique_id=636167681 instance=ExtResource("4_vui52")]
-position = Vector2(-17, -8)
+position = Vector2(-40, -7)
 rotation = -0.007422149
 mass = 0.179
 
@@ -95,3 +96,9 @@ position = Vector2(-163, -10)
 
 [node name="NPC" parent="." unique_id=2139562292 instance=ExtResource("8_y2r1x")]
 position = Vector2(-115, -8)
+
+[node name="enemy4" parent="." unique_id=855556390 instance=ExtResource("6_vb6gr")]
+position = Vector2(-133, -11)
+
+[node name="Node2D" parent="." unique_id=406303463 instance=ExtResource("9_vui52")]
+position = Vector2(-3, -32)

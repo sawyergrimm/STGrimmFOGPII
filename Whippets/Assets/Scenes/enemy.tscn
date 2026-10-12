@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://lrvea8admmkt" path="res://Assets/Scripts/enemyGunarm.gd" id="29_cup26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2g0jp"]
+friction = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2b7p"]
 size = Vector2(7, 14)
@@ -42,7 +43,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_atlr2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -88,6 +89,7 @@ stream_7/stream = ExtResource("27_epbfg")
 [node name="Enemy" type="RigidBody2D" unique_id=539363537]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_2g0jp")
+lock_rotation = true
 script = ExtResource("1_e2b7p")
 bloodSplatter = ExtResource("2_2g0jp")
 bullet = ExtResource("3_6ekcc")

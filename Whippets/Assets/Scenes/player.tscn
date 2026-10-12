@@ -118,10 +118,10 @@ flip_v = true
 script = ExtResource("6_2hs0m")
 
 [node name="MarkerRight" type="Marker2D" parent="Gunarm" unique_id=309118759]
-position = Vector2(13.866668, -2)
+position = Vector2(9.5, -2)
 
 [node name="MarkerLeft" type="Marker2D" parent="Gunarm" unique_id=917232472]
-position = Vector2(13.866667, 3)
+position = Vector2(9.5, 3)
 
 [node name="GunShotPlayer" type="AudioStreamPlayer2D" parent="." unique_id=947746859]
 stream = SubResource("AudioStreamRandomizer_dx0e4")

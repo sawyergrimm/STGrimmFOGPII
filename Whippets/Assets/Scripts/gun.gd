@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 		if !body.name.contains("Player"):
 			var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 5))
 			var result = space_state.intersect_ray(query)
-			print_debug(result)
 			if result.is_empty(): linear_velocity = -1 * linear_velocity
 		if body.name.contains("enemy"):
 			var particle = bloodSplatter.instantiate()

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://wo4hqd504ia6"]
+
+[ext_resource type="Shader" uid="uid://ds43osjphhl3o" path="res://Assets/Scenes/spatial.tres" id="1_2csue"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqkee"]
+render_priority = 0
+shader = ExtResource("1_2csue")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s7ph3"]
+material = SubResource("ShaderMaterial_hqkee")
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwfyi"]
+render_priority = 0
+shader = ExtResource("1_2csue")
+
+[node name="Node3D" type="Node3D" unique_id=1296216064]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1690722335]
+transform = Transform3D(1, 0, 0, 0, 0.01913312, 0.99981695, 0, -0.99981695, 0.01913312, -0.06986964, 0, 0)
+mesh = SubResource("QuadMesh_s7ph3")
+surface_material_override/0 = SubResource("ShaderMaterial_fwfyi")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1621938794]
+transform = Transform3D(0.9063098, 0.21101524, -0.3661628, 0, 0.86642367, 0.4993096, 0.42261404, -0.45252916, 0.7852482, -1.7322211, 1.3731115, 2.08521)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1023743785]
+transform = Transform3D(1, 0, 0, 0, 0.77359307, 0.6336827, 0, -0.6336827, 0.77359307, 0, 0, 0)
