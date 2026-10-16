@@ -558,7 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db44d470ed7cb2188dcbcfd0233079f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialScriptExample
-  speed: 30
+  speed: 3
+  fadeSpeed: 0.03
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
