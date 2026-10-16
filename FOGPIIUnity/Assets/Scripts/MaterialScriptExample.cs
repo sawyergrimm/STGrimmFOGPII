@@ -18,7 +18,7 @@ public class MaterialScriptExample : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Fixed_Update()
+    void FixedUpdate()
     {
         material.SetFloat("_Speed", speed);
         currentOpacity = material.GetFloat("_Opacity");
