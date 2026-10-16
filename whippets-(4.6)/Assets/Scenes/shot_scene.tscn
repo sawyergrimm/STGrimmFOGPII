@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bqgay7qt2q5de"]
+
+[ext_resource type="Script" uid="uid://dp7d0hmhblg3y" path="res://Assets/Scripts/shot_scene.gd" id="1_mdb8i"]
+[ext_resource type="AudioStream" uid="uid://dh6cpgh2tyv6m" path="res://Assets/Audio/Misc/shot.ogg" id="2_mdb8i"]
+[ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="3_4rrsx"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ctmmj"]
+streams_count = 1
+stream_0/stream = ExtResource("2_mdb8i")
+
+[node name="shotScene" type="Node2D" unique_id=201026657]
+script = ExtResource("1_mdb8i")
+
+[node name="ShotPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2095372859]
+stream = SubResource("AudioStreamRandomizer_ctmmj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=247339181]
+
+[node name="ShotText" type="Label" parent="." unique_id=1872018457]
+offset_left = -674.0
+offset_top = -175.0
+offset_right = 676.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("3_4rrsx")
+theme_override_font_sizes/font_size = 400
+text = "SHOT"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2003488077]
+offset_left = -55.0
+offset_top = 266.0
+offset_right = 56.0
+offset_bottom = 297.0
+text = "Restart
+"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
