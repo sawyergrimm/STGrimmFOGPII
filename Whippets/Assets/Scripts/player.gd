@@ -19,7 +19,7 @@ var blindness
 var counter = 10
 var whippetCounter = -1
 var bulletInstanceCounter = 0
-var ammo = 10
+var ammo = 7
 var whippets = 100
 var hasGun = true
 var health = 3

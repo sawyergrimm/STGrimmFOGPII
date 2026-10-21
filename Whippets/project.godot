@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Whippets"
-run/main_scene="uid://qwi8jnsequco"
+run/main_scene="uid://bpa1ttmq14dly"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -108,4 +108,4 @@ rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.073555045, 0.053927563, 0.042471096, 1)
+environment/defaults/default_clear_color=Color(0.28336805, 0.2804303, 0.18471718, 1)

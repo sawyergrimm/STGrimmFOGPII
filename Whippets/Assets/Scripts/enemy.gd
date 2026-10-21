@@ -8,7 +8,7 @@ var ammo = 10
 var bulletInstanceCounter = 0
 var timeVar = 0.0
 var interval = 1.0
-var health = 3
+var health = 1
 var player
 
 #Movement-related variables
@@ -16,7 +16,9 @@ var targetDestination: float #The x-value that is the pathfinding target
 var direction = 1
 var lastX: float
 var jumpPatience = 5
+var swapPatience = 90
 var jumpPatienceCounter = 0
+var swapPatienceCounter = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,6 +49,7 @@ func _physics_process(delta: float) -> void:
 func move(delta: float) -> void:
 	if global_position.x == lastX and global_position.x == lastX :
 		jumpPatienceCounter += 1
+		swapPatienceCounter += 1
 	if jumpPatienceCounter > jumpPatience:
 		var space_state = get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 10))
@@ -55,6 +58,9 @@ func move(delta: float) -> void:
 			linear_velocity.y = -250
 		jumpPatienceCounter = 0
 		jumpPatience = randi_range(5,50)
+	if swapPatienceCounter > swapPatience:
+		selectTargetDestination()
+		swapPatienceCounter = 0
 
 	if (direction == 1 and global_position.x > targetDestination) or (direction == -1 and global_position.x < targetDestination):
 		selectTargetDestination()

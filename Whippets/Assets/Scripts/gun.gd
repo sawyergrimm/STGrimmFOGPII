@@ -28,8 +28,8 @@ func _physics_process(delta: float) -> void:
 			$AudioStreamPlayer2D.play()
 			linear_velocity = -1 * linear_velocity
 			body.health -= 1
-			if player.ammo < 10: 
-				player.ammo = 10
+			if player.ammo < 7: 
+				player.ammo = 7
 				$AnimatedSprite2D.play("shiny")
 	pass
 

@@ -1,0 +1,46 @@
+[gd_resource type="TileSet" format=3 uid="uid://oii77vdkitc4"]
+
+[ext_resource type="Texture2D" uid="uid://ctju05h2sgskx" path="res://Assets/Sprites/tileset.png" id="1_jpm15"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vui52"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2m525"]
+resource_name = "Tileset"
+texture = ExtResource("1_jpm15")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpm15"]
+resource_name = "CollisionlessTileset"
+texture = ExtResource("1_jpm15")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[resource]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_vui52")
+sources/0 = SubResource("TileSetAtlasSource_2m525")
+sources/1 = SubResource("TileSetAtlasSource_jpm15")

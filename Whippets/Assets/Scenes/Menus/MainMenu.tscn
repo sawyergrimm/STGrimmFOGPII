@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bpa1ttmq14dly"]
+
+[ext_resource type="Script" uid="uid://ml8ollsmyrsd" path="res://Assets/Scripts/MenuScripts/play_button.gd" id="1_3x2db"]
+[ext_resource type="Script" uid="uid://vfejt30rigvp" path="res://Assets/Scenes/Menus/quit_button.gd" id="2_q0tfb"]
+
+[node name="Control" type="Control" unique_id=1848414682]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=916988901]
+z_index = -1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.26666668)
+
+[node name="PlayButton" type="Button" parent="." unique_id=9458075]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -240.0
+offset_right = 150.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+script = ExtResource("1_3x2db")
+
+[node name="QuitButton" type="Button" parent="." unique_id=683180527]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -90.0
+offset_right = 150.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+script = ExtResource("2_q0tfb")
+
+[node name="QuitButton2" type="Button" parent="." unique_id=427251381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 60.0
+offset_right = 150.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1331693130]
+z_index = 1
+layout_mode = 0
+offset_left = 810.0
+offset_top = 600.0
+offset_right = 1110.0
+offset_bottom = 700.0
+
+[node name="LinkButton" type="LinkButton" parent="CenterContainer" unique_id=1716075347]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "Survey"
+underline = 2
+uri = "https://forms.gle/WWTW7fYYy2SgYG1d9"
+
+[connection signal="button_down" from="PlayButton" to="PlayButton" method="_on_button_down"]
+[connection signal="button_down" from="QuitButton" to="QuitButton" method="_on_button_down"]
