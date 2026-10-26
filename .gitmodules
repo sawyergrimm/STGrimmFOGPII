@@ -1,0 +1,6 @@
+[submodule "whippets/Assets/BrotherGrimmUtils"]
+	path = whippets/Assets/BrotherGrimmUtils
+	url = https://github.com/sawyergrimm/BrotherGrimmUtils.git
+[submodule "whippets/Assets/BGUtils"]
+	path = whippets/Assets/BGUtils
+	url = https://github.com/sawyergrimm/BrotherGrimmUtils.git
