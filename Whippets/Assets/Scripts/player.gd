@@ -161,7 +161,8 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Refresh"):
 		get_tree().reload_current_scene()
-	healthUI.get_child(0).set_text("Health:"+str(health))
-	bulletUI.get_child(0).set_text("Ammo:" + str(ammo))
+	
+	UI.set_health(health)
+	UI.set_bullets(ammo)
 	
 	pass

@@ -12,6 +12,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -1030.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -20,4 +22,5 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Yes"
 label_settings = SubResource("LabelSettings_m74w7")

@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://b24ju57n6ele"]
 
 [ext_resource type="Script" uid="uid://bpigpvc7wyfnw" path="res://Assets/Scripts/camera.gd" id="1_mr6bl"]
-[ext_resource type="PackedScene" uid="uid://cox0r1fec6qg8" path="res://Assets/UI/HealthUI.tscn" id="2_2q7h0"]
 [ext_resource type="PackedScene" uid="uid://lj6w3cno355e" path="res://Assets/Particles/BulletImpact.tscn" id="3_adlbg"]
 [ext_resource type="PackedScene" uid="uid://c6nhnodtqtkoi" path="res://Assets/Scenes/box.tscn" id="5_xuot2"]
 [ext_resource type="PackedScene" uid="uid://by7btwk25kfo6" path="res://Assets/Scenes/enemy.tscn" id="6_3ccyd"]
@@ -20,18 +19,6 @@ offset = Vector2(5, 10)
 zoom = Vector2(8, 8)
 script = ExtResource("1_mr6bl")
 player = NodePath("../Player")
-
-[node name="HealthUI" parent="Camera2D" unique_id=2130626799 instance=ExtResource("2_2q7h0")]
-offset_left = -110.0
-offset_top = -44.0
-offset_right = -110.0
-offset_bottom = -44.0
-
-[node name="BulletUI" parent="Camera2D" unique_id=1874084529 instance=ExtResource("2_2q7h0")]
-offset_left = 70.0
-offset_top = -44.0
-offset_right = 70.0
-offset_bottom = -44.0
 
 [node name="BulletImpact" parent="." unique_id=805142106 instance=ExtResource("3_adlbg")]
 
