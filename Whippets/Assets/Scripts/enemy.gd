@@ -59,16 +59,16 @@ func move(delta: float) -> void:
 		jumpPatienceCounter = 0
 		jumpPatience = randi_range(5,50)
 	if swapPatienceCounter > swapPatience:
-		selectTargetDestination()
+		select_target_destination()
 		swapPatienceCounter = 0
 
 	if (direction == 1 and global_position.x > targetDestination) or (direction == -1 and global_position.x < targetDestination):
-		selectTargetDestination()
+		select_target_destination()
 	linear_velocity += Vector2(direction * 150 * delta, 0)
 	lastX = global_position.x
 	pass
 
-func selectTargetDestination() -> void:
+func select_target_destination() -> void:
 	targetDestination = global_position.x + ( (randf() - 0.5) * 150);
 	if targetDestination < global_position.x:
 		direction = -1
