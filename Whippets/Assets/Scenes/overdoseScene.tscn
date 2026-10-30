@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dk3qkvdcxtjyv" path="res://overdose_scene.gd" id="1_24b7j"]
 [ext_resource type="AudioStream" uid="uid://d10bd5ve7woax" path="res://Assets/Audio/Misc/overdose.ogg" id="2_a6yif"]
-[ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="3_a6yif"]
+[ext_resource type="FontFile" uid="uid://dqvryycldk7m1" path="res://Assets/UI/PressStart2P-Regular.ttf" id="3_a6yif"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a6yif"]
 streams_count = 1
@@ -22,7 +22,7 @@ offset_top = -175.0
 offset_right = 676.0
 offset_bottom = 197.0
 theme_override_fonts/font = ExtResource("3_a6yif")
-theme_override_font_sizes/font_size = 400
+theme_override_font_sizes/font_size = 150
 text = "OVERDOSED"
 horizontal_alignment = 1
 

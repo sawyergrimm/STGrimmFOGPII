@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cox0r1fec6qg8"]
 
-[ext_resource type="FontFile" uid="uid://dseg70yhhwmxi" path="res://Assets/UI/Ithaca-LVB75.ttf" id="1_23s26"]
+[ext_resource type="FontFile" uid="uid://dqvryycldk7m1" path="res://Assets/UI/PressStart2P-Regular.ttf" id="1_23s26"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m74w7"]
 font = ExtResource("1_23s26")
