@@ -1,3 +1,3 @@
 ## Style Guide
-Variable Name: camelCase
-Function name PascalCase
+Variable Name:               camelCase
+User-Defined Function name   PascalCase
