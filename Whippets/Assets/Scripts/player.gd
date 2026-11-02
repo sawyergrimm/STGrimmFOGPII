@@ -18,6 +18,8 @@ var blindness
 
 var counter = 10
 var damageCooldown = 0
+var coyoteTime = 5
+var jumpCooldown = 0
 var whippetCounter = -1
 var bulletInstanceCounter = 0
 var ammo = 7
@@ -36,12 +38,21 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
+		if coyoteTime > 0:
+			coyoteTime -= 1
 		velocity += get_gravity() * delta
+	if is_on_floor():
+		coyoteTime = 5
+
+	if jumpCooldown > 0:
+		jumpCooldown -= 1
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		$JumpGruntPlayer.play()
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("ui_accept"):
+		if coyoteTime > 0 and jumpCooldown == 0:
+			$JumpGruntPlayer.play()
+			velocity.y = JUMP_VELOCITY
+			jumpCooldown = 10
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
