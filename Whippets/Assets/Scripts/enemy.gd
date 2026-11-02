@@ -31,12 +31,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if health <= 0:
-		queue_free()
+		Death()
 	timeVar += delta
 	var _collisions = get_colliding_bodies()	
 	if timeVar > interval:
 		timeVar -= interval
-		shoot()
+		Shoot()
 	pass
 
 
@@ -59,23 +59,23 @@ func move(delta: float) -> void:
 		jumpPatienceCounter = 0
 		jumpPatience = randi_range(5,50)
 	if swapPatienceCounter > swapPatience:
-		select_target_destination()
+		SelectTargetDestination()
 		swapPatienceCounter = 0
 
 	if (direction == 1 and global_position.x > targetDestination) or (direction == -1 and global_position.x < targetDestination):
-		select_target_destination()
+		SelectTargetDestination()
 	linear_velocity += Vector2(direction * 150 * delta, 0)
 	lastX = global_position.x
 	pass
 
-func select_target_destination() -> void:
+func SelectTargetDestination() -> void:
 	targetDestination = global_position.x + ( (randf() - 0.5) * 150);
 	if targetDestination < global_position.x:
 		direction = -1
 	else:
 		direction = 1
 
-func shoot() -> void:
+func Shoot() -> void:
 	if position.distance_to(player.position) < 130:
 		ammo -= 1
 		$GunShotEnemy.play()
@@ -89,3 +89,8 @@ func shoot() -> void:
 			b.global_transform = $Gunarm/MarkerLeft.global_transform
 		else:
 			b.global_transform = $Gunarm/MarkerRight.global_transform
+
+func Death() -> void:
+	var deathTween = get_tree().create_tween()
+	deathTween.tween_property(self, 'scale', Vector2(0, 0), 0.1)
+	deathTween.tween_callback(queue_free)

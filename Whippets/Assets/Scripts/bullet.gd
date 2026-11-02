@@ -19,12 +19,15 @@ func _process(delta: float) -> void:
 		
 		#What to do on contact with player
 		if body.name == "Player":
-			body.health -= 1
-			var particle = bloodSplatter.instantiate()
-			get_tree().current_scene.add_child(particle)
-			particle.global_transform = global_transform
-			particle.emitting = true
-			particle.finished.connect(particle.queue_free)	
+			if body.damageCooldown == 0:
+				body.TakeDamage()
+				body.health -= 1
+				var particle = bloodSplatter.instantiate()
+				get_tree().current_scene.add_child(particle)
+				particle.global_transform = global_transform
+				particle.emitting = true
+				particle.finished.connect(particle.queue_free)
+				body.damageCooldown = 60
 			
 		#Generic rigidbody collision
 		elif body is RigidBody2D:
