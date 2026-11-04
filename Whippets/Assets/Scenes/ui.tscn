@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://coxl5taqfhn0j"]
 
 [ext_resource type="PackedScene" uid="uid://cox0r1fec6qg8" path="res://Assets/UI/HealthUI.tscn" id="1_s0u4m"]
-[ext_resource type="Script" uid="uid://bvjvltbedr86n" path="res://ui.gd" id="1_vjwkc"]
+[ext_resource type="Script" uid="uid://cnyjtg6rqfbcb" path="res://Assets/Scripts/ui.gd" id="1_vjwkc"]
 
 [node name="Control" type="CanvasLayer" unique_id=1134195762]
 layer = 10
@@ -21,10 +21,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_bottom = 0.0
-offset_left = -294.0
-offset_top = 1.0
-offset_right = -294.0
-offset_bottom = 1.0
+offset_left = -462.0
+offset_top = 20.0
+offset_right = -462.0
+offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 1
 scale = Vector2(5, 5)
@@ -35,9 +35,10 @@ layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 12.999999
-offset_right = 12.999999
-offset_bottom = 0.0
+offset_left = 12.0
+offset_top = 20.0
+offset_right = 12.0
+offset_bottom = 20.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(5, 5)

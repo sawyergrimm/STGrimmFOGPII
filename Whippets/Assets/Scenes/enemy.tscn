@@ -30,6 +30,8 @@
 [ext_resource type="AudioStream" uid="uid://c3k51ggdfyd6r" path="res://Assets/Audio/GunSounds/throw8.ogg" id="27_epbfg"]
 [ext_resource type="Texture2D" uid="uid://ddwe72wn1aata" path="res://Assets/Sprites/Enemy/enemyGunarm.png" id="28_lug4b"]
 [ext_resource type="Script" uid="uid://lrvea8admmkt" path="res://Assets/Scripts/enemyGunarm.gd" id="29_cup26"]
+[ext_resource type="AudioStream" uid="uid://ceakemoot31ot" path="res://Assets/Audio/Misc/enemyDeath.ogg" id="31_kjnsq"]
+[ext_resource type="AudioStream" uid="uid://dofgwfu1qgko3" path="res://Assets/Audio/Misc/enemyDeath2.ogg" id="32_hr4sq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2g0jp"]
 friction = 0.1
@@ -86,6 +88,13 @@ stream_5/stream = ExtResource("25_m2i2v")
 stream_6/stream = ExtResource("26_hav80")
 stream_7/stream = ExtResource("27_epbfg")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kjnsq"]
+random_pitch = 1.122462
+random_volume_offset_db = 1.0
+streams_count = 2
+stream_0/stream = ExtResource("31_kjnsq")
+stream_1/stream = ExtResource("32_hr4sq")
+
 [node name="Enemy" type="RigidBody2D" unique_id=539363537]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_2g0jp")
@@ -104,7 +113,7 @@ sprite_frames = SubResource("SpriteFrames_2g0jp")
 
 [node name="GunShotEnemy" type="AudioStreamPlayer2D" parent="." unique_id=1737569631]
 stream = SubResource("AudioStreamRandomizer_bxwom")
-volume_db = -9.622
+volume_db = -17.018
 
 [node name="JumpGruntEnemy" type="AudioStreamPlayer2D" parent="." unique_id=131333417]
 stream = SubResource("AudioStreamRandomizer_ge4wq")
@@ -127,3 +136,9 @@ position = Vector2(13.866668, -2)
 
 [node name="MarkerLeft" type="Marker2D" parent="Gunarm" unique_id=523224870]
 position = Vector2(13.866667, 3)
+
+[node name="DeathPlayer" type="AudioStreamPlayer2D" parent="." unique_id=169669298]
+stream = SubResource("AudioStreamRandomizer_kjnsq")
+volume_db = -7.0
+attenuation = 0.0
+max_polyphony = 8

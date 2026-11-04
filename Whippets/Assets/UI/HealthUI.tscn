@@ -4,7 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_m74w7"]
 font = ExtResource("1_23s26")
-font_size = 20
+font_size = 15
 
 [node name="UI" type="Control" unique_id=2130626799]
 z_index = 1

@@ -23,5 +23,10 @@ func _physics_process(_delta: float) -> void:
 		$Chatter.play()
 		interactCount += 1
 	if interactCount == 8:
-		wall.queue_free()
-		queue_free()
+		wall.Death()
+		Death()
+		
+func Death() -> void:
+	var deathTween = get_tree().create_tween()
+	deathTween.tween_property(self, 'scale', Vector2(0, 0), 0.1)
+	deathTween.tween_callback(queue_free)

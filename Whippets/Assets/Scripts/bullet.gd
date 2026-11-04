@@ -2,6 +2,7 @@ extends RigidBody2D
 
 const bulletImpact = preload("res://Assets/Particles/BulletImpact.tscn")
 const boxBreak = preload("res://Assets/Particles/BoxBreak.tscn")
+const targetBreak = preload("res://Assets/Particles/TargetBreak.tscn")
 const bloodSplatter = preload("res://Assets/Particles/bloodsplatter.tscn")
 @export var player: Node2D
 var velocity: Vector2
@@ -29,6 +30,13 @@ func _process(delta: float) -> void:
 				particle.finished.connect(particle.queue_free)
 				body.damageCooldown = 60
 			
+		if body.name == "Target":
+			body.Shot()
+			var targetBreakParticle = targetBreak.instantiate()
+			get_tree().current_scene.add_child(targetBreakParticle)
+			targetBreakParticle.global_transform = body.global_transform
+			targetBreakParticle.get_child(0).emitting = true
+			targetBreakParticle.get_child(0).finished.connect(targetBreakParticle.queue_free)
 		#Generic rigidbody collision
 		elif body is RigidBody2D:
 			var forceDir = (body.global_position - global_position).normalized()
@@ -48,6 +56,7 @@ func _process(delta: float) -> void:
 				boxBreakParticle.global_transform = body.global_transform
 				boxBreakParticle.get_child(0).emitting = true
 				boxBreakParticle.get_child(0).finished.connect(boxBreakParticle.queue_free)
+
 		else:
 			var particle = bulletImpact.instantiate()
 			get_tree().current_scene.add_child(particle)

@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://8m4fw8ogme4n" path="res://Assets/Audio/GunSounds/catch1.ogg" id="36_rgkdp"]
 [ext_resource type="AudioStream" uid="uid://cvt50chfj5yvb" path="res://Assets/Audio/GunSounds/catch2.ogg" id="37_r5ifs"]
 [ext_resource type="AudioStream" uid="uid://lmstnpgaxm3d" path="res://Assets/Audio/GunSounds/catch3.ogg" id="38_tk7rj"]
+[ext_resource type="AudioStream" uid="uid://btatgpts6cmsh" path="res://Assets/Audio/Misc/footstep.ogg" id="38_tx0dr"]
 [ext_resource type="AudioStream" uid="uid://d3465o6n3nij4" path="res://Assets/Audio/GunSounds/catch4.ogg" id="39_c0qrj"]
 [ext_resource type="AudioStream" uid="uid://bgg88wpf4yik3" path="res://Assets/Audio/Misc/whippet.ogg" id="40_r5ifs"]
 [ext_resource type="Gradient" uid="uid://qvli3x6hw0rl" path="res://Assets/Colors/grayscaleFade.tres" id="41_tk7rj"]
@@ -88,6 +89,12 @@ stream_1/stream = ExtResource("37_r5ifs")
 stream_2/stream = ExtResource("38_tk7rj")
 stream_3/stream = ExtResource("39_c0qrj")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s7ph3"]
+random_pitch = 1.1731737
+random_volume_offset_db = 2.4
+streams_count = 1
+stream_0/stream = ExtResource("38_tx0dr")
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=206405271]
 collision_layer = 7
 collision_mask = 7
@@ -122,7 +129,7 @@ position = Vector2(9.5, 3)
 
 [node name="GunShotPlayer" type="AudioStreamPlayer2D" parent="." unique_id=947746859]
 stream = SubResource("AudioStreamRandomizer_dx0e4")
-volume_db = -9.622
+volume_db = -12.0
 
 [node name="JumpGruntPlayer" type="AudioStreamPlayer2D" parent="." unique_id=377796924]
 stream = SubResource("AudioStreamRandomizer_efrwb")
@@ -139,8 +146,6 @@ volume_db = -4.0
 stream = ExtResource("40_r5ifs")
 volume_db = -14.791
 
-[node name="WarningPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1087082260]
-
 [node name="Blindness" type="CPUParticles2D" parent="." unique_id=1922815297]
 emitting = false
 amount = 251
@@ -156,3 +161,6 @@ scale_amount_min = 5.0
 scale_amount_max = 10.0
 color = Color(0.24115604, 0.24115604, 0.24115604, 1)
 color_ramp = ExtResource("41_tk7rj")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=747046418]
+stream = SubResource("AudioStreamRandomizer_s7ph3")

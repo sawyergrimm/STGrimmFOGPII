@@ -59,8 +59,11 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if Input.get_axis("ui_left", "ui_right") != 0:
 		$AnimatedSprite2D.play("run")
+		if !$FootstepPlayer.playing:
+			$FootstepPlayer.play()
 	else:
 		$AnimatedSprite2D.play("default")
+		$FootstepPlayer.stop()
 	if direction:
 		velocity.x = direction * SPEED
 		if velocity.x < 0:
@@ -114,8 +117,8 @@ func _process(_delta: float) -> void:
 			$Gunarm.texture = whippet
 	if Input.is_action_just_pressed("Refresh"):
 		get_tree().reload_current_scene()
-	UI.set_health(health)
-	UI.set_bullets(ammo)
+	UI.SetHealth(health)
+	UI.SetBullets(ammo)
 	pass
 
 func ThrowGun() -> void:

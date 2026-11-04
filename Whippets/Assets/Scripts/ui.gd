@@ -10,8 +10,8 @@ func _ready() -> void:
 
 
 
-func set_health(health: int) -> void:
+func SetHealth(health: int) -> void:
 	healthCounter.set_text("Health:"+str(health))
 
-func set_bullets(bullets: int) ->void:
+func SetBullets(bullets: int) ->void:
 	bulletCounter.set_text("Ammo:" + str(bullets))

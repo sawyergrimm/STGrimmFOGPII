@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+
+const targetBreak = preload("res://Assets/Particles/TargetBreak.tscn")
 var player
 var bloodSplatter = load("res://Assets/Particles/bloodsplatter.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +16,14 @@ func _physics_process(delta: float) -> void:
 	var collisions := move_and_collide(linear_velocity * delta)
 	if collisions:
 		var body = collisions.get_collider()
-			
+		
+		if body.name == "Target":
+			body.Shot()	
+			var targetBreakParticle = targetBreak.instantiate()
+			get_tree().current_scene.add_child(targetBreakParticle)
+			targetBreakParticle.global_transform = body.global_transform
+			targetBreakParticle.get_child(0).emitting = true
+			targetBreakParticle.get_child(0).finished.connect(targetBreakParticle.queue_free)
 		if !body.name.contains("Player"):
 			var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 5))
 			var result = space_state.intersect_ray(query)
