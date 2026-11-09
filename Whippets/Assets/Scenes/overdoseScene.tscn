@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djusk3eq7kapl"]
 
-[ext_resource type="Script" uid="uid://dk3qkvdcxtjyv" path="res://overdose_scene.gd" id="1_24b7j"]
+[ext_resource type="Script" uid="uid://dk3qkvdcxtjyv" path="res://Assets/Scripts/overdose_scene.gd" id="1_24b7j"]
 [ext_resource type="AudioStream" uid="uid://d10bd5ve7woax" path="res://Assets/Audio/Misc/overdose.ogg" id="2_a6yif"]
 [ext_resource type="FontFile" uid="uid://dqvryycldk7m1" path="res://Assets/UI/PressStart2P-Regular.ttf" id="3_a6yif"]
 

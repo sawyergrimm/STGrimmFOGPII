@@ -156,19 +156,19 @@ func FireGun() ->void:
 func WhippetFunction() -> void:
 	whippetCounter += 1
 	if whippetCounter > 0:
-		blindness.amount = whippetCounter * 100
+		blindness.amount = whippetCounter * 25
 		blindness.scale_amount_max = 8 * whippetCounter
 		if blindness.scale_amount_max > 100:
 			blindness.scale_amount_max = 100
 		blindness.scale_amount_min = 4 * whippetCounter
 		if blindness.scale_amount_min > 50:
 			blindness.scale_amount_min = 50
-		blindness.lifetime = whippetCounter * whippetCounter / (0.2 * whippetCounter)
+		blindness.lifetime = 10
 		if blindness.lifetime > 50:
 			blindness.lifetime = 50
 		blindness.emitting = true
 	if whippetCounter > 6:
-		blindness.color = Color.DARK_RED
+		blindness.material.set_shader_parameter('tint', Color(0.2, 0.0, 0.0, 0.7))
 		blindness.color_ramp = redscale
 	if whippetCounter >= 9:
 		get_tree().change_scene_to_file("res://Assets/Scenes/overdoseScene.tscn")

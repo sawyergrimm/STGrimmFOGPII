@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://c3k51ggdfyd6r" path="res://Assets/Audio/GunSounds/throw8.ogg" id="35_c0qrj"]
 [ext_resource type="AudioStream" uid="uid://8m4fw8ogme4n" path="res://Assets/Audio/GunSounds/catch1.ogg" id="36_rgkdp"]
 [ext_resource type="AudioStream" uid="uid://cvt50chfj5yvb" path="res://Assets/Audio/GunSounds/catch2.ogg" id="37_r5ifs"]
+[ext_resource type="Shader" uid="uid://cokhdpt83sgct" path="res://Assets/Shaders/particle_blur_2d.gdshader" id="37_rgkdp"]
 [ext_resource type="AudioStream" uid="uid://lmstnpgaxm3d" path="res://Assets/Audio/GunSounds/catch3.ogg" id="38_tk7rj"]
 [ext_resource type="AudioStream" uid="uid://btatgpts6cmsh" path="res://Assets/Audio/Misc/footstep.ogg" id="38_tx0dr"]
 [ext_resource type="AudioStream" uid="uid://d3465o6n3nij4" path="res://Assets/Audio/GunSounds/catch4.ogg" id="39_c0qrj"]
@@ -88,6 +89,12 @@ stream_0/stream = ExtResource("36_rgkdp")
 stream_1/stream = ExtResource("37_r5ifs")
 stream_2/stream = ExtResource("38_tk7rj")
 stream_3/stream = ExtResource("39_c0qrj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pd8sr"]
+shader = ExtResource("37_rgkdp")
+shader_parameter/blurLod = 6.0
+shader_parameter/tapSpread = 2.000000095
+shader_parameter/tint = Color(0, 0, 0, 0.49411765)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s7ph3"]
 random_pitch = 1.1731737
@@ -147,6 +154,8 @@ stream = ExtResource("40_r5ifs")
 volume_db = -14.791
 
 [node name="Blindness" type="CPUParticles2D" parent="." unique_id=1922815297]
+z_index = 1
+material = SubResource("ShaderMaterial_pd8sr")
 emitting = false
 amount = 251
 lifetime = 10.0
