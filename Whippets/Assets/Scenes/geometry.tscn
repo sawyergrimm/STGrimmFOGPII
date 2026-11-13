@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chew1vrb0i27d"]
 
-[ext_resource type="Texture2D" uid="uid://sd27pdbot67h" path="res://Assets/Sprites/Misc/basic.png" id="1_a3dh7"]
 [ext_resource type="Script" uid="uid://pd7s60gmbrtp" path="res://Assets/Scripts/wall.gd" id="1_gkpjt"]
+[ext_resource type="Texture2D" uid="uid://deefkh2orjxoh" path="res://Assets/Sprites/Misc/basic2.png" id="2_gkpjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkpjt"]
 size = Vector2(16, 16)
@@ -13,4 +13,4 @@ script = ExtResource("1_gkpjt")
 shape = SubResource("RectangleShape2D_gkpjt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=903789965]
-texture = ExtResource("1_a3dh7")
+texture = ExtResource("2_gkpjt")

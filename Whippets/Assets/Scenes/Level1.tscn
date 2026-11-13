@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bfynioi2u4m1j" path="res://Assets/Scenes/player.tscn" id="7_j0jbc"]
 [ext_resource type="PackedScene" uid="uid://bnmy5emtfhb7f" path="res://Assets/Scenes/npc.tscn" id="8_om6i1"]
 [ext_resource type="TileSet" uid="uid://oii77vdkitc4" path="res://Assets/Sprites/tileset.tres" id="9_grxpr"]
-[ext_resource type="Texture2D" uid="uid://sd27pdbot67h" path="res://Assets/Sprites/Misc/basic.png" id="10_7td72"]
 [ext_resource type="Script" uid="uid://crlecpn7gukhk" path="res://Assets/Scripts/NextLevel.gd" id="10_qm2ms"]
+[ext_resource type="Texture2D" uid="uid://deefkh2orjxoh" path="res://Assets/Sprites/Misc/basic2.png" id="10_wqmxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7ph3"]
 
@@ -76,6 +76,6 @@ shape = SubResource("RectangleShape2D_s7ph3")
 [node name="Sprite2D" type="Sprite2D" parent="NextLevel" unique_id=156829003]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(0, 2)
-texture = ExtResource("10_7td72")
+texture = ExtResource("10_wqmxn")
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]

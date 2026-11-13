@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfynioi2u4m1j" path="res://Assets/Scenes/player.tscn" id="4_rr0mt"]
 [ext_resource type="TileSet" uid="uid://oii77vdkitc4" path="res://Assets/Sprites/tileset.tres" id="5_qb27v"]
 [ext_resource type="Script" uid="uid://bm4xmh26h70t8" path="res://Assets/Scripts/NextLevel3.gd" id="7_h8551"]
-[ext_resource type="Texture2D" uid="uid://sd27pdbot67h" path="res://Assets/Sprites/Misc/basic.png" id="8_h8551"]
+[ext_resource type="Texture2D" uid="uid://deefkh2orjxoh" path="res://Assets/Sprites/Misc/basic2.png" id="7_qb27v"]
 [ext_resource type="PackedScene" uid="uid://pedrp7ha10tk" path="res://Assets/Scenes/door.tscn" id="9_h8551"]
 [ext_resource type="PackedScene" uid="uid://bhuyh1qipf0tb" path="res://Assets/Scenes/target.tscn" id="10_jlv3j"]
 
@@ -53,7 +53,7 @@ shape = SubResource("RectangleShape2D_s7ph3")
 [node name="Sprite2D" type="Sprite2D" parent="NextLevel3" unique_id=156829003]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(0, 2)
-texture = ExtResource("8_h8551")
+texture = ExtResource("7_qb27v")
 
 [node name="Door" parent="." unique_id=331993433 instance=ExtResource("9_h8551")]
 position = Vector2(-8, 8)
