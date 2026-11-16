@@ -23,9 +23,8 @@ player = NodePath("../Player")
 [node name="BulletImpact" parent="." unique_id=805142106 instance=ExtResource("3_adlbg")]
 
 [node name="box0" parent="." unique_id=636167681 instance=ExtResource("5_xuot2")]
-position = Vector2(-40, -7)
+position = Vector2(-40, 11)
 rotation = -0.007422149
-mass = 0.179
 
 [node name="enemy0" parent="." unique_id=539363537 instance=ExtResource("6_3ccyd")]
 position = Vector2(-128, -99)

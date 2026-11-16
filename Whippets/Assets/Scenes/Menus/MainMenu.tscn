@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://vfejt30rigvp" path="res://Assets/Scenes/Menus/quit_button.gd" id="2_q0tfb"]
 
 [node name="Control" type="Control" unique_id=1848414682]
+z_index = 20
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

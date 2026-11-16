@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 var health: int = 5
 # Called when the node enters the scene tree for the first time.

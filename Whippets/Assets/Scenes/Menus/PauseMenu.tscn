@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dbjswshnsoq7s"]
+
+[ext_resource type="Script" uid="uid://b5cr36lqj7hsm" path="res://Assets/Scenes/Menus/PauseMenu.gd" id="1_2ruif"]
+[ext_resource type="Shader" uid="uid://cokhdpt83sgct" path="res://Assets/Shaders/particle_blur_2d.gdshader" id="1_ucgb2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1ydo"]
+shader = ExtResource("1_ucgb2")
+shader_parameter/blurLod = 6.0
+shader_parameter/tapSpread = 2.000000095
+shader_parameter/tint = Color(0.4506483, 0.4506483, 0.45064825, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1392569984]
+layer = 10
+
+[node name="Control" type="Control" parent="." unique_id=1848414682]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ruif")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=916988901]
+z_index = -1
+material = SubResource("ShaderMaterial_l1ydo")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0.49803922)
+
+[node name="ResumeButton" type="Button" parent="Control" unique_id=9458075]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -240.0
+offset_right = 150.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="Control" unique_id=683180527]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -90.0
+offset_right = 150.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+
+[node name="QuitButton2" type="Button" parent="Control" unique_id=427251381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 60.0
+offset_right = 150.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1331693130]
+z_index = 1
+layout_mode = 0
+offset_left = 810.0
+offset_top = 600.0
+offset_right = 1110.0
+offset_bottom = 700.0
+
+[node name="LinkButton" type="LinkButton" parent="Control/CenterContainer" unique_id=1716075347]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "Survey"
+underline = 2
+uri = "https://forms.gle/WWTW7fYYy2SgYG1d9"
+
+[connection signal="button_down" from="Control/ResumeButton" to="Control" method="_on_play_button_down"]
+[connection signal="button_down" from="Control/QuitButton" to="Control" method="_on_quit_button_down"]

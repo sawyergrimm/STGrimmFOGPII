@@ -38,9 +38,8 @@ scale = Vector2(1, 8)
 script = ExtResource("4_qm2ms")
 
 [node name="box0" parent="." unique_id=636167681 instance=ExtResource("5_dqdc5")]
-position = Vector2(-40, -7)
+position = Vector2(-9.999996, -4)
 rotation = -0.007422149
-mass = 0.179
 
 [node name="box1" parent="." unique_id=1349043646 instance=ExtResource("5_dqdc5")]
 position = Vector2(161, -5)

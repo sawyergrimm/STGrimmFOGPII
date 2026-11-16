@@ -6,10 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oq5cr"]
 size = Vector2(12, 18)
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=636167681]
+[node name="RigidBody2D" type="StaticBody2D" unique_id=889911132]
 collision_layer = 7
 collision_mask = 7
-can_sleep = false
 script = ExtResource("1_vpanj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1111706285]

@@ -15,6 +15,7 @@ var redscale = load("res://Assets/Colors/redscaleFade.tres")
 var healthUI
 var bulletUI
 var blindness
+var pauseMenu
 
 var counter = 10
 var damageCooldown = 0
@@ -33,6 +34,7 @@ func _ready() -> void:
 	add_to_group("player")
 	healthUI = get_tree().current_scene.find_child("HealthUI")
 	bulletUI = get_tree().current_scene.find_child("BulletUI")
+	pauseMenu = get_tree().current_scene.find_child("PauseMenu")
 	blindness = $Blindness
 
 
@@ -114,7 +116,7 @@ func _process(_delta: float) -> void:
 		elif whippets > 0:
 			$Gunarm.texture = whippet
 	if Input.is_action_just_pressed("Refresh"):
-		get_tree().reload_current_scene()
+		get_tree().reload_current_scene()	
 	UI.SetHealth(health)
 	UI.SetBullets(ammo)
 	if gunInstance != null and gunInstance.position.distance_to(position) < 11 and gunThrownTime > 0.1:
@@ -203,3 +205,4 @@ func TakeDamage() -> void:
 	damageTween.tween_property($AnimatedSprite2D, 'modulate', Color.WHITE, 0.1)
 	damageTween.tween_property($AnimatedSprite2D, 'modulate', Color.INDIAN_RED, 0.1)
 	damageTween.tween_property($AnimatedSprite2D, 'modulate', Color.WHITE, 0.1)
+	

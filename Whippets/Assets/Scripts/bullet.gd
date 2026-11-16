@@ -49,13 +49,13 @@ func _process(delta: float) -> void:
 				particle.global_transform = global_transform
 				particle.emitting = true
 				particle.finished.connect(particle.queue_free)
-			if body.name.contains("box"):
-				body.health -= 1
-				var boxBreakParticle = boxBreak.instantiate()
-				get_tree().current_scene.add_child(boxBreakParticle)
-				boxBreakParticle.global_transform = body.global_transform
-				boxBreakParticle.get_child(0).emitting = true
-				boxBreakParticle.get_child(0).finished.connect(boxBreakParticle.queue_free)
+		if body.name.contains("box"):
+			body.health -= 1
+			var boxBreakParticle = boxBreak.instantiate()
+			get_tree().current_scene.add_child(boxBreakParticle)
+			boxBreakParticle.global_transform = body.global_transform
+			boxBreakParticle.get_child(0).emitting = true
+			boxBreakParticle.get_child(0).finished.connect(boxBreakParticle.queue_free)
 
 		else:
 			var particle = bulletImpact.instantiate()
