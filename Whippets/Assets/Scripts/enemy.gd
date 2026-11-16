@@ -51,9 +51,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("EnemyJump"):
 		linear_velocity.y = -250
 	var query = PhysicsRayQueryParameters2D.create(global_position, player.global_position)
-	query.exclude = [self, player]
-	for i in range(len(transparents)):
-		query.exclude.append(transparents[i])
+	var excluded: Array[RID] = []
+	for node in transparents:
+		if node != null and node is CollisionObject2D:
+			excluded.append(node.get_rid())
+	excluded.append(self)
+	excluded.append(player)
+	query.exclude = excluded
 	var result = space_state.intersect_ray(query)
 	
 	if result.is_empty():
