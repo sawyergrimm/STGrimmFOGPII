@@ -20,13 +20,16 @@ var jumpPatience = 5
 var swapPatience = 90
 var jumpPatienceCounter = 0
 var swapPatienceCounter = 0
-
+var canSeePlayer = false
+var transparents
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	contact_monitor = true
 	max_contacts_reported = 10
 	player = get_tree().current_scene.find_child("Player")
+	transparents = get_tree().get_nodes_in_group("transparent")
+	$Gunarm.enemy = self
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,17 +37,29 @@ func _process(delta: float) -> void:
 	if health <= 0 and killed == false:
 		killed = true
 		Death()
-	timeVar += delta
-	if timeVar > interval:
-		timeVar -= interval
-		Shoot()
+	if canSeePlayer:
+		timeVar += delta
+		if timeVar > interval:
+			timeVar -= interval
+			Shoot()
 	pass
 
 
 func _physics_process(delta: float) -> void:
+	var space_state = get_world_2d().direct_space_state
 	Move(delta)
 	if Input.is_action_just_released("EnemyJump"):
 		linear_velocity.y = -250
+	var query = PhysicsRayQueryParameters2D.create(global_position, player.global_position)
+	query.exclude = [self, player]
+	for i in range(len(transparents)):
+		query.exclude.append(transparents[i])
+	var result = space_state.intersect_ray(query)
+	
+	if result.is_empty():
+		canSeePlayer = true
+	else:
+		canSeePlayer = false
 	pass
 	
 func Move(delta: float) -> void:

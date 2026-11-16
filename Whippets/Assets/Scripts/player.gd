@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
-		var body = collision.get_collider()
+		var _body = collision.get_collider()
 	if damageCooldown > 0:
 		damageCooldown -= 1
 	pass
@@ -117,7 +117,7 @@ func _process(_delta: float) -> void:
 		get_tree().reload_current_scene()
 	UI.SetHealth(health)
 	UI.SetBullets(ammo)
-	if gunInstance != null and gunInstance.position.distance_to(position) < 10 and gunThrownTime > 0.1:
+	if gunInstance != null and gunInstance.position.distance_to(position) < 11 and gunThrownTime > 0.1:
 		gunInstance.free()
 		hasGun = true
 		$GunCatchPlayer.play()
