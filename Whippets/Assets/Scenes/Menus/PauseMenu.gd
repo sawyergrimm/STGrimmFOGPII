@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 
 func _on_play_button_down() -> void:
 	visible = false
+	get_tree().paused = false
 	pass # Replace with function body.
 
 
