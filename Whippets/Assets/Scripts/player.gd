@@ -26,7 +26,8 @@ var ammo = 7
 var whippets = 100
 var hasGun = true
 var health = 3
-
+var gunInstance: Node2D
+var gunThrownTime = 0
 
 func _ready() -> void:
 	add_to_group("player")
@@ -80,16 +81,12 @@ func _physics_process(delta: float) -> void:
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var body = collision.get_collider()
-		if body != null and body.name.contains("gun"):
-			body.free()
-			hasGun = true
-			$GunCatchPlayer.play()
-			$Gunarm.texture = gunarm
 	if damageCooldown > 0:
 		damageCooldown -= 1
 	pass
 
 func _process(_delta: float) -> void:
+	gunThrownTime += _delta
 	#If you die, go to the death scene
 	if health <= 0:
 		get_tree().change_scene_to_file("res://Assets/Scenes/shot_scene.tscn")
@@ -99,7 +96,8 @@ func _process(_delta: float) -> void:
 		elif $Gunarm.texture == whippet:
 			WhippetFunction()
 	if Input.is_action_just_pressed("RightMouseClick") and hasGun:
-		ThrowGun()
+		gunInstance = ThrowGun()
+		gunThrownTime = 0
 	if Input.is_action_just_pressed("SpawnBlock"):
 		var boxy = box.instantiate()
 		get_tree().current_scene.add_child(boxy)
@@ -119,9 +117,14 @@ func _process(_delta: float) -> void:
 		get_tree().reload_current_scene()
 	UI.SetHealth(health)
 	UI.SetBullets(ammo)
+	if gunInstance != null and gunInstance.position.distance_to(position) < 10 and gunThrownTime > 0.1:
+		gunInstance.free()
+		hasGun = true
+		$GunCatchPlayer.play()
+		$Gunarm.texture = gunarm
 	pass
 
-func ThrowGun() -> void:
+func ThrowGun() -> Node2D:
 		$ThrowPlayer.play()
 		hasGun = false
 		$Gunarm.texture = arm
@@ -137,6 +140,7 @@ func ThrowGun() -> void:
 			g.angular_velocity = randi() % 50
 		else:
 			g.angular_velocity = randi() % 50 * -1
+		return g
 
 func FireGun() ->void:
 			ammo -= 1

@@ -52,9 +52,9 @@ autowrap_mode = 3
 
 [node name="Label" type="Label" parent="TutorialText" unique_id=1889247806]
 layout_mode = 0
-offset_top = 15.0
+offset_top = 52.0
 offset_right = 662.9815
-offset_bottom = 131.11665
+offset_bottom = 168.11665
 scale = Vector2(0.12066702, 0.19807667)
 theme_override_fonts/font = ExtResource("3_laeim")
 text = "press e to hear more"

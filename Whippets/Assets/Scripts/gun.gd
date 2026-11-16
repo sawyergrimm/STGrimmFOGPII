@@ -16,7 +16,12 @@ func _physics_process(delta: float) -> void:
 	var collisions := move_and_collide(linear_velocity * delta)
 	if collisions:
 		var body = collisions.get_collider()
-		
+		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 5))
+		var result = space_state.intersect_ray(query)
+		if body and result.is_empty():
+			linear_velocity = -1 * linear_velocity
+		elif body and body.name.contains("enemy"):
+			linear_velocity = -1 * linear_velocity	
 		if body.name == "Target":
 			body.Shot()	
 			var targetBreakParticle = targetBreak.instantiate()
@@ -24,10 +29,7 @@ func _physics_process(delta: float) -> void:
 			targetBreakParticle.global_transform = body.global_transform
 			targetBreakParticle.get_child(0).emitting = true
 			targetBreakParticle.get_child(0).finished.connect(targetBreakParticle.queue_free)
-		if !body.name.contains("Player"):
-			var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 5))
-			var result = space_state.intersect_ray(query)
-			if result.is_empty(): linear_velocity = -1 * linear_velocity
+
 		if body.name.contains("enemy"):
 			var particle = bloodSplatter.instantiate()
 			get_tree().current_scene.add_child(particle)
@@ -35,11 +37,14 @@ func _physics_process(delta: float) -> void:
 			particle.emitting = true
 			particle.finished.connect(particle.queue_free)
 			$AudioStreamPlayer2D.play()
-			linear_velocity = -1 * linear_velocity
+			#linear_velocity = -1 * linear_velocity
 			body.health -= 1
 			if player.ammo < 7: 
 				player.ammo = 7
 				$AnimatedSprite2D.play("shiny")
+	if position.y > 50:
+		linear_velocity = Vector2(0, 0)
+		position = player.position + Vector2(0, -20)
 	pass
 
 
